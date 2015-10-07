@@ -1,0 +1,106 @@
+<div class="container posts-page">
+      <div>
+        <span>
+          Debate started by
+          <a ng-href="#/users/{{ post.creatorUID }}">
+            {{ post.creator }}
+          </a>
+        </span>
+      </div>
+  <div class="post row">
+<!--    <ul class="nav nav-pills nav-justified">
+<li><a data-target="#tab_a" data-toggle="pill">{{ post.teamA }}</a></li>
+<li><a data-target="#tab_b" data-toggle="pill">{{ post.teamB }}</a></li>
+</ul> -->
+
+
+    <ul class="nav nav-pills nav-justified" role="tablist">
+        <li ng-class="{'active': view_tab == 'tabA'}">
+            <a class="btn-lg" ng-click="changeTab('tabA')" href="">{{ post.teamA }}</a>
+        </li>
+        <li ng-class="{'active': view_tab == 'tabB'}">
+            <a class="btn-lg" ng-click="changeTab('tabB')" href="">{{ post.teamB }}</a>
+        </li>
+    </ul>
+</div>
+
+<div class "tab-content">
+
+<div class="tab-pane" ng-show="view_tab == 'null'">
+<div class="row cmt" style="text-align:center">
+Choose a side to comment and vote for the best argument
+</div>
+</div>
+
+<div class="tab-pane" ng-show="view_tab == 'tabA'">
+  <div ng-repeat="comment in commentsA | orderBy:'-votes'" class="row cmt">
+    <div class="col-md-12">
+  <sub>{{ comment.votes }}</sub>
+      <img ng-click="upvoteA(comment)" src="/images/up.png"></img>
+       <img ng-click="downvoteA(comment)" src="/images/down.png"></img>
+
+      <p>{{ comment.text }}</p>
+      <p class="author">posted by
+        <a ng-href="#/users/{{ comment.creatorUID }}">
+          {{ comment.creator }}
+        </a>
+        <a ng-href=""
+        ng-click="deleteCommentA(comment)"
+        ng-show="signedIn() && comment.creatorUID === user.uid">
+        (delete)
+      </a>
+      </p>
+    </div>
+  </div>
+
+  <div class="cmt-form">
+    <div ng-hide="signedIn()">
+      <p><a href="#/login">Sign in</a> to post a comment</p>
+    </div>
+
+    <form ng-show="signedIn()" ng-submit="addCommentA()">
+      <textarea
+        ng-model="commentText"
+        placeholder="Post an opinion"
+        class="form-control"></textarea><br />
+      <input type="submit" value="Post" class="btn btn-primary" />
+    </form>
+  </div>
+</div>
+
+<div class="tab-pane" ng-show="view_tab == 'tabB'">
+ <div ng-repeat="comment in commentsB | orderBy:'-votes'" class="row cmt">
+    <div class="col-md-12">
+     <sub>{{ comment.votes }}</sub>
+      <img ng-click="upvoteB(comment)" src="/images/up.png"></img>
+       <img ng-click="downvoteB(comment)" src="/images/down.png"></img>
+         
+      <p>{{ comment.text }}</p>
+      <p class="author">posted by
+        <a ng-href="#/users/{{ comment.creatorUID }}">
+          {{ comment.creator }}
+        </a>
+        <a ng-href=""
+        ng-click="deleteCommentB(comment)"
+        ng-show="signedIn() && comment.creatorUID === user.uid">
+        (delete)
+      </a>
+      </p>
+    </div>
+  </div>
+
+  <div class="cmt-form">
+   
+
+    <form ng-show="signedIn()" ng-submit="addCommentB()">
+      <textarea
+        ng-model="commentText"
+        placeholder="Post an opinion"
+        class="form-control"></textarea><br />
+      <input type="submit" value="Post" class="btn btn-primary" />
+    </form>
+  </div>
+</div>
+
+</div>
+</div>

@@ -1,0 +1,44 @@
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#/">MegaStream</a>
+  </div>
+   
+  <div ng-controller="NavCtrl" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<!--     <form class="navbar-form navbar-left" role="search" ng-submit="submitPost()" ng-show="signedIn()">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="" ng-model="post.teamA">
+      </div> vs.
+      <div class="form-group">
+      <input type="text" class="form-control" placeholder="" ng-model="post.teamB">
+      </div>
+      <button type="submit" class="btn btn-default">Debate it!</button>
+    </form> -->
+    <ul class="nav navbar-nav navbar-right" >
+  <li ng-show="signedIn()">
+    <p class="navbar-text">{{ user.profile.username }}</p>
+  </li>
+  <li ng-show="signedIn()">
+    <a ng-href="#/users/{{ user.profile.uid }}">
+     {{ currentUser.username }}
+  <!--     <img ng-src="http://www.gravatar.com/avatar/{{ user.profile.md5_hash }}" class="nav-pic" />    --> 
+    </a>
+  </li>
+  <li ng-show="signedIn()">
+    <a href="#/" ng-click="logout()">Logout</a>
+  </li>
+  <li ng-hide="signedIn()">
+    <a href="#/login">Login</a>
+  </li>
+  <li ng-hide="signedIn()">
+    <a href="#/register">Register</a>
+  </li>
+</ul>
+  </div><!-- /.navbar-collapse -->
+</nav>

@@ -1,0 +1,11 @@
+{
+  "firebase": "glowing-inferno-7389",
+  "rules": "security-rules.json",
+  "public": "dist",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+  
+}
