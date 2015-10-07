@@ -1,6 +1,6 @@
 'use strict';
-app.controller('ListenCtrl', function($scope, $location, Post, Auth){
+app.controller('ListenCtrl', function($scope, $window, Audio){
 
-};
+    $scope.onRecord = Audio.startRecording;
 
 });
