@@ -25,8 +25,8 @@ var app = angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-  templateUrl: 'views/posts.html',
-  controller: 'PostsCtrl'
+  templateUrl: 'views/listen.html',
+  controller: 'ListenCtrl'
       })
       .when('/posts/:postId', {
   templateUrl: 'views/comments.html',

@@ -2,11 +2,11 @@
 
 Run with grunt. To install: 
 
-#Install Yeoman
+#install Yeoman
 
 npm install -g yo
 
-#Install bower
+#install bower
 
 $ npm install -g bower
 
