@@ -8,6 +8,8 @@ npm install -g yo
 
 #install bower
 
+bower install
+
 npm install -g bower
 
 #install grunt
