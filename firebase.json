@@ -1,7 +1,6 @@
 {
-  "firebase": "glowing-inferno-7389",
-  "rules": "security-rules.json",
-  "public": "dist",
+  "firebase": "megastream",
+  "public": "app",
   "ignore": [
     "firebase.json",
     "**/.*",

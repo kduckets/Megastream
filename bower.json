@@ -16,7 +16,7 @@
     "angular-mocks": "^1.3.0"
   },
   "appPath": "app",
-  "moduleName": "debateMateApp",
+  "moduleName": "megastreamApp",
   "resolutions": {
     "angular": "1.2.x || 1.3.x"
   }

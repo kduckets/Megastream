@@ -27,3 +27,7 @@ npm install -g grunt-cli
 #navigate to MegaStream folder and type:
 
 grunt serve
+
+#to deploy
+grunt build //creates dist folder for deploy
+firebase deploy
