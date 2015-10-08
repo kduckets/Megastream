@@ -8,9 +8,11 @@ npm install -g yo
 
 #install bower
 
-$ npm install -g bower
+npm install -g bower
 
 #install grunt
+
+cd to megastream folder
 
 npm install grunt --save-dev
 
@@ -20,6 +22,6 @@ npm install -g bower grunt
 
 npm install -g grunt-cli
 
-#In terminal, navigate to MegaStream folder and type:
+#navigate to MegaStream folder and type:
 
 grunt serve
