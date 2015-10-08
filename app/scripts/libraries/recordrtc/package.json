@@ -1,0 +1,55 @@
+{
+  "name": "recordrtc",
+  "preferGlobal": false,
+  "version": "5.2.0",
+  "author": {
+    "name": "Muaz Khan",
+    "email": "muazkh@gmail.com",
+    "url": "http://www.muazkhan.com/"
+  },
+  "description": "RecordRTC is a server-less (entire client-side) JavaScript library can be used to record WebRTC audio/video media streams. It supports cross-browser audio/video recording.",
+  "scripts": {
+    "start": "node RecordRTC.js"
+  },
+  "main": "./RecordRTC.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muaz-khan/RecordRTC.git"
+  },
+  "keywords": [
+    "webrtc",
+    "recordrtc",
+    "audio-recording",
+    "video-recording",
+    "gif-recording",
+    "audio/video recording"
+  ],
+  "analyze": false,
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/muaz-khan/RecordRTC/issues",
+    "email": "muazkh@gmail.com"
+  },
+  "homepage": "http://RecordRTC.org/",
+  "_id": "recordrtc@5.2.0",
+  "_from": "recordrtc@*",
+  "_shasum": "6b1c6e5567c3cfe9d0d7e8a65992e91d6648acb8",
+  "_npmVersion": "2.14.2",
+  "_nodeVersion": "0.12.7",
+  "_npmUser": {
+    "name": "muaz-khan",
+    "email": "muazkh@gmail.com"
+  },
+  "dist": {
+    "shasum": "6b1c6e5567c3cfe9d0d7e8a65992e91d6648acb8",
+    "tarball": "http://registry.npmjs.org/recordrtc/-/recordrtc-5.2.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "muaz-khan",
+      "email": "muazkh@gmail.com"
+    }
+  ],
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/recordrtc/-/recordrtc-5.2.0.tgz"
+}

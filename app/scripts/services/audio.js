@@ -2,34 +2,20 @@
 
 app.factory('Audio', function($window, $http) {
 
-    var recordRtcOptions = {
-        // 'sample-rate' : 22050
-    };
-
-    navigator.getUserMedia = (
-        $window.navigator.getUserMedia ||
-        $window.navigator.webkitGetUserMedia ||
-        $window.navigator.mozGetUserMedia ||
-        $window.navigator.msGetUserMedia)
-
-    var _recordRTC = {};
-    navigator.getUserMedia({ audio: true, video: false }, function (stream) {
-        console.log('starting to initialize getUserMedia');
-       
-
-        _recordRTC = RecordRTC(stream);    
-
-        console.log('Finished initializing getUserMedia');
-    }, function (error) {
-        console.log('Error initializing media stream: ' + error);  
-    });
 
     var Audio = {
 
     startRecording:function() {
         console.log('starting to record...');
         // console.log('sample rate: ' + _recordRTC.sampleRate);
-        _recordRTC.startRecording();
+       var recordRTC = RecordRTC(mediaStream);
+      recordRTC.startRecording();
+        recordRTC.stopRecording(function(audioURL) {
+          audio.src = audioURL;
+
+    var recordedBlob = recordRTC.getBlob();
+    recordRTC.getDataURL(function(dataURL) { });
+});
     },
 
     stopRecording:function(uploadPath) {
