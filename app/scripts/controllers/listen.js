@@ -10,7 +10,7 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio){
     });
 
     // auto stop recording after 5 seconds
-    recordRTC.setRecordingDuration(5 * 1000).onRecordingStopped(function() {
+    recordRTC.setRecordingDuration(10 * 1000).onRecordingStopped(function() {
        console.log('recording stopped');
         $scope.recordedBlob = recordRTC.getBlob();
         
@@ -27,10 +27,13 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio){
         blobToBase64($scope.recordedBlob, function(base64){ // encode
             var base64blob = {'blob': base64};
             console.log(base64blob);
-            
+
          $http.post('/api/uploadtrack', base64blob)
             .success(function(data) {
-                console.log(data);
+                $scope.artist = data.artist;
+                $scope.title = data.title;
+                $scope.album = data.album;
+                console.log(data.test);
             })
             .error(function(data) {
                 console.log('Error: ' + data);
