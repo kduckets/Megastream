@@ -31,8 +31,8 @@
       //upload audio track
     router.post('/uploadtrack', function(req, resp){
     
-        // var blob = new Buffer(req.body.blob, 'base64'); // decode
-            var blob = req.body.blob;
+         var blob = new Buffer(req.body.blob, 'base64'); // decode
+           // var blob = req.body.blob;
        
       
         if (!blob)
@@ -121,9 +121,27 @@ setTimeout(function() {
   if (err) console.log(err);
   console.log(body);
   var obj = JSON.parse(body);
+
+  if (obj.status.msg != 'No result'){
+
+    //grab info from music fingerprinting API
+    //TODO: handle multiple responses
   var artist = obj.metadata.music[0].artists[0].name;
   var title = obj.metadata.music[0].title;
   var album = obj.metadata.music[0].album.name;
+
+    //interact with Discogs
+  var Discogs = require('disconnect').Client;
+  // Authenticate by consumer key and secret
+    var dis = new Discogs({
+    consumerKey: 'NkGkQmxCMALmQCBYYdnZ', 
+    consumerSecret: 'npMAgZwCuvfselUUpysRCqyXdQUrqcZh'
+    });
+    //test discogs
+        var db = new Discogs().database();
+db.release(176126, function(err, data){
+    console.log(data);
+});
 
   resp.json(
                 {   
@@ -133,11 +151,45 @@ setTimeout(function() {
                     artist:artist  
                 }
             );
+    }
+        });
+    }, 1000);
+
+
+
 });
-}, 1000);
 
+    //get a request token from Discogs
+   router.get('/authorize', function(req, res){
+    var oAuth = new Discogs().oauth();
+    oAuth.getRequestToken(
+        'NkGkQmxCMALmQCBYYdnZ', 
+        'npMAgZwCuvfselUUpysRCqyXdQUrqcZh', 
+        '/api/callback', 
+        function(err, requestData){
+            // Persist "requestData" here so that the callback handler can 
+            // access it later after returning from the authorize url
+            var discogsdata = require('node-persist');
+            discogsdata.initSync();
+            discogsdata.setItem('requestData',requestData);
+            res.redirect(requestData.authorizeUrl);
+        }
+    );
+});
 
-
+   //get an access token from Discogs
+   router.get('/callback', function(req, res){
+    var oAuth = new Discogs(requestData).oauth();
+    oAuth.getAccessToken(
+        req.query.oauth_verifier, // Verification code sent back by Discogs
+        function(err, accessData){
+            // Persist "accessData" here for following OAuth calls 
+            var discogsdata = require('node-persist');
+            //discogsdata.initSync();
+            discogsdata.setItem('accessData',accessData);
+            res.send('Received access token!');
+        }
+    );
 });
 
 // REGISTER OUR ROUTES -------------------------------

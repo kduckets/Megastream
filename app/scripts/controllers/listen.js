@@ -51,18 +51,4 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio){
 
 });
 
-           /*     $http({
-                method : 'POST',
-                headers: {
-                'Content-Type': 'application/octet-stream',
-                'Accept':'application/json'
-                },
-                
-                url : 'https://developer.echonest.com/api/v4/track/upload?api_key=LFJOHTELG1WX5SPLW&filetype=wav&track=' + $scope.recordedBlob
-               
-            }).success(function(data) {
-                console.log('POST /audio Success');
-
-            }).error(function() {
-                console.log('POST /audio error'); 
-            });*/
+   
