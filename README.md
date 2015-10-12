@@ -27,6 +27,7 @@ npm install -g grunt-cli
 #install node
 
 https://nodejs.org/download/
+
 npm install -g nodemon
 
 #navigate to MegaStream folder and type:
