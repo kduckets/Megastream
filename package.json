@@ -1,13 +1,22 @@
 {
   "name": "megastream",
   "version": "0.0.0",
-  "main"         : "server.js",
-  "dependencies": { 
-    "express"    : "~4.7.2",
-    "mongoose"   : "~3.6.2",
-    "morgan"     : "~1.2.2",
+  "main": "Gruntfile.js",
+  "dependencies": {
     "body-parser": "~1.5.2",
-    "method-override": "~2.1.2"},
+    "connect": "^3.4.0",
+    "disconnect": "^0.6.7",
+    "echojs": "^0.1.4",
+    "express": "~4.7.2",
+    "method-override": "~2.1.2",
+    "mongoose": "~3.6.2",
+    "morgan": "~1.2.2",
+    "node-persist": "0.0.6",
+    "recordrtc": "^5.2.2",
+    "request": "^2.65.0",
+    "serve-static": "^1.10.0",
+    "wav": "^1.0.0"
+  },
   "repository": {},
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -33,13 +42,11 @@
     "jshint-stylish": "^1.0.0",
     "load-grunt-tasks": "^3.1.0",
     "time-grunt": "^1.0.0"
-
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "description": "Run with grunt. To install:",
-  "main": "Gruntfile.js",
   "directories": {
     "test": "test"
   },

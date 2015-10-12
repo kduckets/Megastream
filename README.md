@@ -10,25 +10,23 @@ npm install -g yo
 
 bower install
 
-npm install -g bower
-
-#install grunt
+#install node
 
 cd to megastream folder
 
-npm install grunt --save-dev
+https://nodejs.org/download/
 
 npm install
+
+npm install -g nodemon
+
+#install grunt
+
+npm install grunt --save-dev
 
 npm install -g bower grunt
 
 npm install -g grunt-cli
-
-#install node
-
-https://nodejs.org/download/
-
-npm install -g nodemon
 
 #navigate to MegaStream folder and type:
 
