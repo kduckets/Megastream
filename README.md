@@ -1,6 +1,6 @@
 ##Megastream
 
-Run with grunt. To install: 
+Run with nodemon. To install: 
 
 #install Yeoman
 
@@ -19,14 +19,6 @@ https://nodejs.org/download/
 npm install
 
 npm install -g nodemon
-
-#install grunt
-
-npm install grunt --save-dev
-
-npm install -g bower grunt
-
-npm install -g grunt-cli
 
 #navigate to MegaStream folder and type:
 
