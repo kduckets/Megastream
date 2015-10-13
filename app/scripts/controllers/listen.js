@@ -26,7 +26,7 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio){
                 };
         blobToBase64($scope.recordedBlob, function(base64){ // encode
             var base64blob = {'blob': base64};
-            console.log(base64blob);
+
 
          $http.post('/api/uploadtrack', base64blob)
             .success(function(data) {

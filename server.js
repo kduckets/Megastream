@@ -134,18 +134,20 @@ setTimeout(function() {
   //http://www.onemusicapi.com/blog/2013/06/12/better-discogs-searching/
     var apiKey = 'NkGkQmxCMALmQCBYYdnZ';
     var apiSecret = 'npMAgZwCuvfselUUpysRCqyXdQUrqcZh';
-    var testpath = '/database/search?' + 'artist=' + artist + '&release_title=' + album + '&key=' + apiKey + '&secret=' + apiSecret;
+    var artist_str = artist.replace(/[^\w\s]|_/g, "+").replace(/\s+/g, "+"); 
+    var album_str = album.replace(/[^\w\s]|_/g, "+").replace(/\s+/g, "+");
+    var discogs_query = 'q=' + artist_str + '+' + album_str + '&key=' + apiKey + '&secret=' + apiSecret;
     console.log('artist: ' + artist + ' album: ' + album);
-    console.log('path' + testpath);
+    console.log('query' + discogs_query);
     var options = {
         host :  'api.discogs.com',
-        headers: {
-            'User-Agent' : 'Megastream'
+        headers: { 
+            'User-Agent' : 'Megastream/0.1'
         },
-        path : '/database/search?' + 'artist=' + artist.replace(/ /g, '+') + '&release_title=' + album.replace(/ /g, '+') + '&key=' + apiKey + '&secret=' + apiSecret,
+        path : '/database/search?' + discogs_query,
         method : 'GET'
     }
-    //making the https get call
+    //making the https get call 
     var getReq = https.request(options, function(response) {
         var dcBody = '';
         response.on('data', function(d) {
@@ -155,8 +157,9 @@ setTimeout(function() {
             // Data reception is done, do whatever with it
             var discogsData = JSON.parse(dcBody);
              //now respond to the client with the fingerprinting and discogs data
-        resp.json(
-                {   
+             console.log('discogs response:'+dcBody);
+        resp.json( 
+                {    
                     test:discogsData,
                     image_test:discogsData.results[0].thumb,
                     album:album,
