@@ -145,7 +145,7 @@ setTimeout(function() {
     var artist_str = artist.replace(/[^\w\s]|_/g, "+").replace(/\s+/g, "+"); 
     var album_str = album.replace(/[^\w\s]|_/g, "+").replace(/\s+/g, "+");
     var track_str = track.replace(/[^\w\s]|_/g, "+").replace(/\s+/g, "+");
-    var discogs_query = 'q=' + 'track:' + track_str + '&artist='+ artist_str + '&format=vinyl' + '&key=' + apiKey + '&secret=' + apiSecret;
+    var discogs_query = 'artist='+ artist_str + '&q=' + 'track:' + track_str + '&format=vinyl' + '&key=' + apiKey + '&secret=' + apiSecret;
     //console.log('artist: ' + artist + ' album: ' + album);
     console.log('query' + discogs_query);
     var options = {
