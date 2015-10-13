@@ -7,6 +7,12 @@
     var morgan = require('morgan');             // log requests to the console (express4)
     var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
     var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
+    var Discogs = require('disconnect').Client; //for discogs oauth
+    var url = require('url'); //ACR api calls
+    var fs = require('fs'); 
+    var crypto = require('crypto'); //ACR api calls
+    var request = require('request');
+    var discogsdata = require('node-persist'); //used to persist json data to the filesystem
 
     
 
@@ -51,10 +57,7 @@
 
         //ACR CLOUD WEB API 
  
-var url = require('url');
-var fs = require('fs');
-var crypto = require('crypto');
-var request = require('request');
+
 
 var defaultOptions = {
   host: 'ap-southeast-1.api.acrcloud.com',
@@ -218,7 +221,7 @@ setTimeout(function() {
     //TODO: persist requestData to user account instead of filesystem (for testing only)
    router.get('/authorize', function(req, res){
  //interact with Discogs
-  var Discogs = require('disconnect').Client;
+  
     var oAuth = new Discogs().oauth();
     oAuth.getRequestToken(
         'NkGkQmxCMALmQCBYYdnZ', 
@@ -227,7 +230,7 @@ setTimeout(function() {
         function(err, requestData){
             // Persist "requestData" here so that the callback handler can 
             // access it later after returning from the authorize url
-            var discogsdata = require('node-persist');
+       
             discogsdata.initSync();
             discogsdata.setItem('requestData',requestData);
             res.json(
@@ -243,8 +246,8 @@ setTimeout(function() {
    //get an access token from Discogs
    //TODO: persist accessData to user account instead of filesystem (for testing only)
    router.get('/callback', function(req, res){
-    var Discogs = require('disconnect').Client;
-    var discogsdata = require('node-persist');
+  
+ 
     var oAuth = new Discogs(discogsdata.getItem('requestData')).oauth();
     oAuth.getAccessToken(
         req.query.oauth_verifier, // Verification code sent back by Discogs
