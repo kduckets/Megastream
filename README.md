@@ -4,10 +4,6 @@ Run with nodemon. To install dependencies:
 
 npm install
 
-#install yeoman
-
-npm install -g yo
-
 #install bower
 
 bower install
