@@ -3,7 +3,7 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal){
 
     $scope.showResults = false;
 
-    $scope.onListen = function()
+    $scope.onListen = function(){
 
             $scope.spin('lg');
 
