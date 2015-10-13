@@ -1,8 +1,10 @@
 ##Megastream
 
-Run with nodemon. To install: 
+Run with nodemon. To install dependencies: 
 
-#install Yeoman
+npm install
+
+#install yeoman
 
 npm install -g yo
 
@@ -15,8 +17,6 @@ bower install
 cd to megastream folder
 
 https://nodejs.org/download/
-
-npm install
 
 npm install -g nodemon
 
