@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "main": "Gruntfile.js",
   "dependencies": {
+    "angular-smart-table": "^2.1.4",
     "body-parser": "~1.5.2",
     "connect": "^3.4.0",
     "disconnect": "^0.6.7",

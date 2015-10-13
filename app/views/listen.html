@@ -16,6 +16,29 @@
 <li><b>Album:</b> {{album}}</li>
 <img src="{{album_image}}" alt=""/>
 </ul>
-
 </div>
+
+<table st-table="releaseResults" class="table table-striped">
+	<thead>
+	<tr>
+		<th>title</th>
+		<th>year</th>
+		<th>country</th>
+		<th>catno</th>
+		<th>formats</th>
+		<th>url</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="release in releaseResults">
+		<td>{{release.title}}</td>
+		<td>{{release.year}}</td>
+		<td>{{release.country}}</td>
+		<td>{{release.catno}}</td>
+		<td>{{release.format | json : spacing}}</td>
+		<td>{{release.resource_url}}</td>
+	</tr>
+	</tbody>
+</table>
+
 </div>

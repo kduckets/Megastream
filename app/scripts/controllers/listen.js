@@ -32,9 +32,12 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio){
             .success(function(data) {
                 $scope.artist = data.artist;
                 $scope.title = data.title;
-                $scope.album = data.album;
-                $scope.album_image = data.image_test;
-                console.log(data.test);
+                $scope.album = data.first_album;
+                $scope.album_image = data.first_image;
+   
+                $scope.releaseResults = data.release_results;
+                 console.log(data.fingerprint_obj);
+                console.log(data.discogs_obj);
             })
             .error(function(data) {
                 console.log('Error: ' + data);
@@ -62,15 +65,6 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio){
                 console.log('Error: ' + data);
             });
         };
-
-            /* $http.get('/api/callback')
-            .success(function(data) {  
-                $scope.discogs = data;      
-                console.log(data);
-            })
-            .error(function(data) {
-                console.log('Error: ' + data);
-            });*/
 
 
 

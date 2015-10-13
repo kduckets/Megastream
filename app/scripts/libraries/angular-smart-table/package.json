@@ -1,0 +1,57 @@
+{
+  "name": "angular-smart-table",
+  "version": "2.1.4",
+  "description": "[![Build Status](https://travis-ci.org/lorenzofox3/Smart-Table.svg?branch=master)](https://travis-ci.org/lorenzofox3/Smart-Table)",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/.bin/gulp karma-CI"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lorenzofox3/Smart-Table.git"
+  },
+  "author": {
+    "name": "Laurent Renard"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-concat": "^2.3.4",
+    "gulp-insert": "^0.4.0",
+    "gulp-jshint": "^1.8.4",
+    "gulp-sourcemaps": "^1.3.0",
+    "gulp-uglify": "^0.3.1",
+    "jshint-stylish": "^0.4.0",
+    "karma": "^0.12.21",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-coverage": "^0.2.6",
+    "karma-jasmine": "^0.1.5",
+    "karma-phantomjs-launcher": "^0.1.4"
+  },
+  "gitHead": "943c6c9d017df6dad09560eb28eb54f94b193775",
+  "bugs": {
+    "url": "https://github.com/lorenzofox3/Smart-Table/issues"
+  },
+  "homepage": "https://github.com/lorenzofox3/Smart-Table#readme",
+  "_id": "angular-smart-table@2.1.4",
+  "_shasum": "5e2bf9fae0391a9a689b390db470b8b29f1cae68",
+  "_from": "angular-smart-table@*",
+  "_npmVersion": "2.14.3",
+  "_nodeVersion": "4.1.0",
+  "_npmUser": {
+    "name": "lorenzofox3",
+    "email": "laurent34azerty@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "lorenzofox3",
+      "email": "laurent34azerty@gmail.com"
+    }
+  ],
+  "dist": {
+    "shasum": "5e2bf9fae0391a9a689b390db470b8b29f1cae68",
+    "tarball": "http://registry.npmjs.org/angular-smart-table/-/angular-smart-table-2.1.4.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/angular-smart-table/-/angular-smart-table-2.1.4.tgz"
+}

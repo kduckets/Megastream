@@ -118,17 +118,17 @@ setTimeout(function() {
     var bitmap = fs.readFileSync(__dirname + '/test.wav');
   identify(new Buffer(bitmap), defaultOptions, function (err, httpResponse, body) {
   if (err) console.log(err);
-  var obj = JSON.parse(body);
+  var fingerprint_obj = JSON.parse(body);
 
 
 
-  if (obj.status.msg != 'No result'){
+  if (fingerprint_obj.status.msg != 'No result'){
 
     //grab info from music fingerprinting API
     //TODO: handle multiple responses
-  var artist = obj.metadata.music[0].artists[0].name;
-  var title = obj.metadata.music[0].title;
-  var album = obj.metadata.music[0].album.name;
+  var artist = fingerprint_obj.metadata.music[0].artists[0].name;
+  var title = fingerprint_obj.metadata.music[0].title;
+  var album = fingerprint_obj.metadata.music[0].album.name;
 
   //once we have the track, we need to go grab info from discogs
   //http://www.onemusicapi.com/blog/2013/06/12/better-discogs-searching/
@@ -136,7 +136,7 @@ setTimeout(function() {
     var apiSecret = 'npMAgZwCuvfselUUpysRCqyXdQUrqcZh';
     var artist_str = artist.replace(/[^\w\s]|_/g, "+").replace(/\s+/g, "+"); 
     var album_str = album.replace(/[^\w\s]|_/g, "+").replace(/\s+/g, "+");
-    var discogs_query = 'q=' + artist_str + '+' + album_str + '&key=' + apiKey + '&secret=' + apiSecret;
+    var discogs_query = 'q=' + artist_str + '+' + '&format=vinyl' + '&key=' + apiKey + '&secret=' + apiSecret;
     console.log('artist: ' + artist + ' album: ' + album);
     console.log('query' + discogs_query);
     var options = {
@@ -155,16 +155,19 @@ setTimeout(function() {
         });
         response.on('end', function() {
             // Data reception is done, do whatever with it
-            var discogsData = JSON.parse(dcBody);
+            var discogs_obj = JSON.parse(dcBody);
              //now respond to the client with the fingerprinting and discogs data
-             console.log('discogs response:'+dcBody);
+             //console.log('discogs response:'+dcBody);
         resp.json( 
                 {    
-                    test:discogsData,
-                    image_test:discogsData.results[0].thumb,
-                    album:album,
+                    discogs_obj:discogs_obj,
+                    fingerprint_obj:fingerprint_obj,
+                    release_results:discogs_obj.results,
+                    first_image:discogs_obj.results[0].thumb,
+                    first_album:discogs_obj.results[0].title,
                     title:title,
-                    artist:artist  
+                    artist:artist 
+                  
                 }
             );
         });
