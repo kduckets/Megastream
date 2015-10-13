@@ -120,7 +120,15 @@ setTimeout(function() {
   if (err) console.log(err);
   var fingerprint_obj = JSON.parse(body);
 
-
+ if (fingerprint_obj.status.msg == 'No result'){
+     resp.json( 
+                {    
+            track:'No result, please try again',
+            artist:'No result, please try again' ,
+            first_album:'No result, please try again'
+        }
+        )
+ };
 
   if (fingerprint_obj.status.msg != 'No result'){
 
@@ -128,7 +136,7 @@ setTimeout(function() {
     //TODO: handle multiple responses
   var artist = fingerprint_obj.metadata.music[0].artists[0].name;
   var track = fingerprint_obj.metadata.music[0].title;
-  var album = fingerprint_obj.metadata.music[0].album.name;
+  var album = fingerprint_obj.metadata.music[0].album.name; 
 
   //once we have the track, we need to go grab info from discogs
   //http://www.onemusicapi.com/blog/2013/06/12/better-discogs-searching/
@@ -138,7 +146,7 @@ setTimeout(function() {
     var album_str = album.replace(/[^\w\s]|_/g, "+").replace(/\s+/g, "+");
     var track_str = track.replace(/[^\w\s]|_/g, "+").replace(/\s+/g, "+");
     var discogs_query = 'q=' + 'track:' + track_str + '&artist='+ artist_str + '&format=vinyl' + '&key=' + apiKey + '&secret=' + apiSecret;
-    console.log('artist: ' + artist + ' album: ' + album);
+    //console.log('artist: ' + artist + ' album: ' + album);
     console.log('query' + discogs_query);
     var options = {
         host :  'api.discogs.com',
@@ -159,7 +167,8 @@ setTimeout(function() {
             var discogs_obj = JSON.parse(dcBody);
              //now respond to the client with the fingerprinting and discogs data
              //console.log('discogs response:'+dcBody);
-        resp.json( 
+             if(discogs_obj.results){
+                resp.json( 
                 {    
                     discogs_obj:discogs_obj,
                     fingerprint_obj:fingerprint_obj,
@@ -167,10 +176,25 @@ setTimeout(function() {
                     first_image:discogs_obj.results[0].thumb,
                     first_album:discogs_obj.results[0].title,
                     track:track,
-                    artist:artist 
+                    artist:artist,
+                    show_discogs_results:true 
                   
                 }
             );
+            };
+             if(!discogs_obj.results){
+                resp.json( 
+                {    
+
+                    track:track,
+                    artist:artist,
+                    first_album:album,
+                    show_discogs_results:false  
+                  
+                }
+            );
+            };
+
         });
     });
 

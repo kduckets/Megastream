@@ -1,6 +1,8 @@
 'use strict';
 app.controller('ListenCtrl', function($scope, $window, $http, Audio){
 
+    $scope.showResults = false;
+
     $scope.onListen = function()
 		{
 	navigator.mediaDevices.getUserMedia({
@@ -34,7 +36,7 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio){
                 $scope.track = data.track;
                 $scope.album = data.first_album;
                 $scope.album_image = data.first_image;
-   
+                $scope.showResults = data.show_discogs_results;
                 $scope.releaseResults = data.release_results;
                  console.log(data.fingerprint_obj);
                 console.log(data.discogs_obj);
