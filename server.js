@@ -127,7 +127,7 @@ setTimeout(function() {
     //grab info from music fingerprinting API
     //TODO: handle multiple responses
   var artist = fingerprint_obj.metadata.music[0].artists[0].name;
-  var title = fingerprint_obj.metadata.music[0].title;
+  var track = fingerprint_obj.metadata.music[0].title;
   var album = fingerprint_obj.metadata.music[0].album.name;
 
   //once we have the track, we need to go grab info from discogs
@@ -136,7 +136,8 @@ setTimeout(function() {
     var apiSecret = 'npMAgZwCuvfselUUpysRCqyXdQUrqcZh';
     var artist_str = artist.replace(/[^\w\s]|_/g, "+").replace(/\s+/g, "+"); 
     var album_str = album.replace(/[^\w\s]|_/g, "+").replace(/\s+/g, "+");
-    var discogs_query = 'q=' + artist_str + '+' + '&format=vinyl' + '&key=' + apiKey + '&secret=' + apiSecret;
+    var track_str = track.replace(/[^\w\s]|_/g, "+").replace(/\s+/g, "+");
+    var discogs_query = 'q=' + 'track:' + track_str + '&artist='+ artist_str + '&format=vinyl' + '&key=' + apiKey + '&secret=' + apiSecret;
     console.log('artist: ' + artist + ' album: ' + album);
     console.log('query' + discogs_query);
     var options = {
@@ -165,7 +166,7 @@ setTimeout(function() {
                     release_results:discogs_obj.results,
                     first_image:discogs_obj.results[0].thumb,
                     first_album:discogs_obj.results[0].title,
-                    title:title,
+                    track:track,
                     artist:artist 
                   
                 }

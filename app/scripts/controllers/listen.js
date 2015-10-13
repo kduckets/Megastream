@@ -31,7 +31,7 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio){
          $http.post('/api/uploadtrack', base64blob)
             .success(function(data) {
                 $scope.artist = data.artist;
-                $scope.title = data.title;
+                $scope.track = data.track;
                 $scope.album = data.first_album;
                 $scope.album_image = data.first_image;
    
