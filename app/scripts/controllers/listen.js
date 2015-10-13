@@ -1,9 +1,10 @@
 'use strict';
-app.controller('ListenCtrl', function($scope, $window, $http, Audio, ModalService){
+app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal){
 
     $scope.showResults = false;
 
     $scope.onListen = function()
+<<<<<<< HEAD
 		{ 
      // start loader
     ModalService.showModal({
@@ -18,6 +19,10 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, ModalServic
     });
       });
 
+=======
+		{
+            $scope.spin('lg');
+>>>>>>> origin/master
 
 	navigator.mediaDevices.getUserMedia({
     audio: true
@@ -82,7 +87,26 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, ModalServic
             });
         };
 
+        //modal stuff
+    $scope.animationsEnabled = true;
 
+  $scope.spin = function (size) {
+
+    var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: '/views/loader.html',
+      controller: 'LoaderCtrl',
+      size: size
+    });
+
+    modalInstance.result.then(function () {
+     console.log('Modal dismissed at: ' + new Date());
+     });
+    };
+
+  $scope.toggleAnimation = function () {
+    $scope.animationsEnabled = !$scope.animationsEnabled;
+  };
 
 });
 
