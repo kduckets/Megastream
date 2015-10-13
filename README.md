@@ -2,9 +2,9 @@
 
 ##Run with nodemon. To install node and dependencies: 
 
-cd to megastream folder
-
 https://nodejs.org/download/
+
+cd to megastream folder
 
 npm install
 
