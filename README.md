@@ -25,6 +25,6 @@ npm install -g nodemon
 nodemon server.js
 
 #to deploy to firebase
-grunt build              //creates dist folder for deploy
+grunt build              //creates dist folder for deploy (optional)
 
 firebase deploy

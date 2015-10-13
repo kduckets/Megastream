@@ -54,7 +54,6 @@
 var url = require('url');
 var fs = require('fs');
 var crypto = require('crypto');
-//npm install request
 var request = require('request');
 
 var defaultOptions = {
@@ -119,8 +118,9 @@ setTimeout(function() {
     var bitmap = fs.readFileSync(__dirname + '/test.wav');
   identify(new Buffer(bitmap), defaultOptions, function (err, httpResponse, body) {
   if (err) console.log(err);
-  console.log(body);
   var obj = JSON.parse(body);
+
+
 
   if (obj.status.msg != 'No result'){
 
@@ -130,27 +130,51 @@ setTimeout(function() {
   var title = obj.metadata.music[0].title;
   var album = obj.metadata.music[0].album.name;
 
-    //interact with Discogs
-  var Discogs = require('disconnect').Client;
-  // Authenticate by consumer key and secret
-    var dis = new Discogs({
-    consumerKey: 'NkGkQmxCMALmQCBYYdnZ', 
-    consumerSecret: 'npMAgZwCuvfselUUpysRCqyXdQUrqcZh'
-    });
-    //test discogs
-        var db = new Discogs().database();
-db.release(176126, function(err, data){
-    console.log(data);
-});
-
-  resp.json(
+  //once we have the track, we need to go grab info from discogs
+  //http://www.onemusicapi.com/blog/2013/06/12/better-discogs-searching/
+    var apiKey = 'NkGkQmxCMALmQCBYYdnZ';
+    var apiSecret = 'npMAgZwCuvfselUUpysRCqyXdQUrqcZh';
+    var testpath = '/database/search?' + 'artist=' + artist + '&release_title=' + album + '&key=' + apiKey + '&secret=' + apiSecret;
+    console.log('artist: ' + artist + ' album: ' + album);
+    console.log('path' + testpath);
+    var options = {
+        host :  'api.discogs.com',
+        headers: {
+            'User-Agent' : 'Megastream'
+        },
+        path : '/database/search?' + 'artist=' + artist.replace(/ /g, '+') + '&release_title=' + album.replace(/ /g, '+') + '&key=' + apiKey + '&secret=' + apiSecret,
+        method : 'GET'
+    }
+    //making the https get call
+    var getReq = https.request(options, function(response) {
+        var dcBody = '';
+        response.on('data', function(d) {
+            dcBody += d;
+        });
+        response.on('end', function() {
+            // Data reception is done, do whatever with it
+            var discogsData = JSON.parse(dcBody);
+             //now respond to the client with the fingerprinting and discogs data
+        resp.json(
                 {   
-                    test:obj,
+                    test:discogsData,
+                    image_test:discogsData.results[0].thumb,
                     album:album,
                     title:title,
                     artist:artist  
                 }
             );
+        });
+    });
+
+    //end the request
+    getReq.end();
+    getReq.on('error', function(err){
+        console.log("Error: ", err);
+        return  resp.status(500).send({error: 'server error occurred'})
+    });
+
+
     }
         });
     }, 1000);
@@ -160,32 +184,42 @@ db.release(176126, function(err, data){
 });
 
     //get a request token from Discogs
+    //TODO: persist requestData to user account instead of filesystem (for testing only)
    router.get('/authorize', function(req, res){
+ //interact with Discogs
+  var Discogs = require('disconnect').Client;
     var oAuth = new Discogs().oauth();
     oAuth.getRequestToken(
         'NkGkQmxCMALmQCBYYdnZ', 
         'npMAgZwCuvfselUUpysRCqyXdQUrqcZh', 
-        '/api/callback', 
+        'http://localhost:8080/#/', 
         function(err, requestData){
             // Persist "requestData" here so that the callback handler can 
             // access it later after returning from the authorize url
             var discogsdata = require('node-persist');
             discogsdata.initSync();
             discogsdata.setItem('requestData',requestData);
-            res.redirect(requestData.authorizeUrl);
+            res.json(
+                {
+                    url:requestData.authorizeUrl
+                }
+                
+                 );
         }
     );
 });
 
    //get an access token from Discogs
+   //TODO: persist accessData to user account instead of filesystem (for testing only)
    router.get('/callback', function(req, res){
-    var oAuth = new Discogs(requestData).oauth();
+    var Discogs = require('disconnect').Client;
+    var discogsdata = require('node-persist');
+    var oAuth = new Discogs(discogsdata.getItem('requestData')).oauth();
     oAuth.getAccessToken(
         req.query.oauth_verifier, // Verification code sent back by Discogs
         function(err, accessData){
             // Persist "accessData" here for following OAuth calls 
-            var discogsdata = require('node-persist');
-            //discogsdata.initSync();
+            discogsdata.initSync();
             discogsdata.setItem('accessData',accessData);
             res.send('Received access token!');
         }

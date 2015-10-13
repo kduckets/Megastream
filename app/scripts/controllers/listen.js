@@ -33,6 +33,7 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio){
                 $scope.artist = data.artist;
                 $scope.title = data.title;
                 $scope.album = data.album;
+                $scope.album_image = data.image_test;
                 console.log(data.test);
             })
             .error(function(data) {
@@ -45,7 +46,31 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio){
 		}).catch(function(error) {
    			 console.error(error);
 		});
-		};
+
+		};//end onListen()
+
+         //testing Oauth implementation
+         //TODO: move to modal
+         $scope.discogsLogin = function()
+        {
+            $http.get('/api/authorize')
+            .success(function(data) { 
+
+            window.location.replace(data.url);      
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
+        };
+
+            /* $http.get('/api/callback')
+            .success(function(data) {  
+                $scope.discogs = data;      
+                console.log(data);
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });*/
 
 
 

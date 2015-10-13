@@ -1,13 +1,21 @@
 <div align="center">
  <div ng-hide="signedIn()">
       <p><a href="#/login">Sign in</a> or <a ng-href="#/register">register</a> to save your listening stats</p>
+      <a ng-click="discogsLogin()"> Connect</a> to Discogs to manage your collection.
     </div>
-<button ng-click="onListen()">Listen</button>
+    <div style="padding-top:10px">
+
+    <button ng-click="onListen()">Listen</button>
+
+    </div>
+
 <div style="padding-top:10px">
 <ul class="list-unstyled">
 <li><b>Artist:</b> {{artist}}</li>
 <li><b>Song:</b> {{title}}</li>
 <li><b>Album:</b> {{album}}</li>
+<img src="{{album_image}}" alt=""/>
 </ul>
+
 </div>
 </div>
