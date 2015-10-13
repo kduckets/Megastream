@@ -4,7 +4,20 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, ModalServic
     $scope.showResults = false;
 
     $scope.onListen = function()
-		{
+		{ 
+     // start loader
+    ModalService.showModal({
+    templateUrl: "/views/loader.html",
+    controller: "ModalController"
+  }).then(function(modal) {
+
+    //it's a bootstrap element, use 'modal' to show it
+    modal.element.modal();
+    modal.close.then(function(result) {
+      console.log(result);
+    });
+      });
+
 
 	navigator.mediaDevices.getUserMedia({
     audio: true

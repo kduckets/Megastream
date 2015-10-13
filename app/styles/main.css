@@ -6,4 +6,148 @@ body {
   max-width: none !important;
 }
 
+/*spinner styling*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0px;
+/*  background-color: #002031;*/
+}
+
+.small2 {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  background-color: transparent;
+  top: 50vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.small1 {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  top: 50vh;
+  left: 50%;
+  transform-origin: center;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: transparent;
+}
+
+.bigcon {
+  position: absolute;
+  height: 95px;
+  width: 95px;
+  top: 50vh;
+  left: 50%;
+  transform-origin: center;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  background-color: transparent;
+  animation: bigcon 2s infinite linear;
+  animation-delay: 0.25s;
+}
+
+.ball {
+  border-radius: 50%;
+  position: absolute;
+}
+
+.small {
+  width: 25px;
+  height: 25px;
+  animation: small 2s infinite ease;
+  box-shadow: 0px 2px rgba(0,0,0,0.3);
+   background-color: #46b9ff;
+}
+
+.small:nth-child(1) {
+  top: 0%;
+  left: 0%;
+}
+
+.small:nth-child(2) {
+  top: 0%;
+  right: 0%;
+}
+
+.small:nth-child(3) {
+  right: 0%;
+  bottom: 0%;
+}
+
+.small:nth-child(4) {
+  bottom: 0%;
+  left: 0%;
+}
+
+.big {
+  width: 20px;
+  height: 20px;
+  border-radius: 15px;
+  box-shadow:0px 0px 10px #54f7f8, 0px 0px 20px #54f7f8, 0px 0px 30px #54f7f8, 0px 0px 50px #54f7f8, 0px 0px 60px #54f7f8 ;
+  z-index: 1;
+  background-color: #54f7f8;
+  animation: bigball 1s infinite linear;
+}
+
+.smallball1{
+  animation-delay: -1.75s;
+}
+.smallball6{
+  animation-delay: -1.5s;
+}
+.smallball2{
+  animation-delay: -1.25s;
+}
+.smallball7{
+  animation-delay: -1s;
+}
+.smallball3{
+  animation-delay: -0.75s;
+}
+.smallball8{
+  animation-delay: -0.5s;
+}
+.smallball4{
+  animation-delay: -0.25s;
+}
+.smallball5{
+  animation-delay: -0s;
+}
+
+@keyframes bigcon {
+  0% {
+    transform-origin: center;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  100% {
+    transform-origin: center;
+    transform: translate(-50%, -50%) rotate(405deg);
+  }
+}
+
+@keyframes small {
+  0% {
+    transform: scale(1);
+     background-color: #46b9ff;
+  }
+  10% {
+    transform: scale(1.3);
+    background-color: #54f7f8;
+  }
+  15% {
+    transform: scale(1);
+  }
+  25%{
+transform: scale(1);
+     background-color: #46b9ff;
+  }
+  100%{
+    transform: scale(1);
+     background-color: #46b9ff;
+  }
+}
 
