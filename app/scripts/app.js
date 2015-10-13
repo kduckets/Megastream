@@ -22,8 +22,7 @@ var app = angular
     'ngTouch',
     'firebase',
     'smart-table',
-    'ui.bootstrap',
-    'angularModalService'
+    'ui.bootstrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider
