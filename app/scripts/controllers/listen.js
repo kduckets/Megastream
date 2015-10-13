@@ -1,10 +1,11 @@
 'use strict';
-app.controller('ListenCtrl', function($scope, $window, $http, Audio){
+app.controller('ListenCtrl', function($scope, $window, $http, Audio, ModalService){
 
     $scope.showResults = false;
 
     $scope.onListen = function()
 		{
+
 	navigator.mediaDevices.getUserMedia({
     audio: true
 		}).then(function(stream) {
