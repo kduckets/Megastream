@@ -5,12 +5,13 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal){
 
     $scope.onListen = function(){
 
-            $scope.spin('lg');
+            
 
 
 	navigator.mediaDevices.getUserMedia({
     audio: true
 		}).then(function(stream) {
+            $scope.spin();
     var recordRTC = RecordRTC(stream, {
     });
 
@@ -74,13 +75,13 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal){
         //modal stuff
     $scope.animationsEnabled = true;
 
-  $scope.spin = function (size) {
+  $scope.spin = function () {
 
     var modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,
       templateUrl: '/views/loader.html',
       controller: 'LoaderCtrl',
-      size: size
+      backdrop:'static'
     });
 
     modalInstance.result.then(function () {
