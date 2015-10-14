@@ -5,10 +5,9 @@ body {
 .app-modal-window .modal-content {
      background-color: transparent;
     background-image: none;
-    opacity: 0.9;
     border: none;
     box-shadow: none;
-   
+    opacity: 2;
 }
 
 /*css3 turntable*/

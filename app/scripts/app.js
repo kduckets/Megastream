@@ -23,7 +23,8 @@ var app = angular
     'firebase',
     'smart-table',
     'ui.bootstrap',
-    'timer'
+    'timer',
+    'angular-spinkit'
   ])
   .config(function ($routeProvider) {
     $routeProvider
