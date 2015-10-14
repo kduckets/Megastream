@@ -1,6 +1,218 @@
 body {
   background: #F3F3F3;
 }
+/*loading modal*/
+.app-modal-window .modal-content {
+     background-color: transparent;
+    background-image: none;
+    opacity: 0.9;
+    border: none;
+    box-shadow: none;
+   
+}
+
+/*css3 turntable*/
+#turntable {
+    position: relative;
+    margin: 50px auto;
+    width: 200px;
+    height: 190px;
+    background: #3e5266;
+    border-radius: 25px;
+    box-shadow: 0 10px 0 0 #2c3e50;
+    overflow: hidden;
+}
+
+.disk-container {
+    width: 135px;
+    height: 135px;
+    background: #bec5c9;
+    border-radius: 50%;
+    margin: 27px auto 0;
+    overflow: hidden;
+}
+
+.disk::before {
+    width: 20px;
+    height: 0;
+    border-top: 50px solid #495c6e;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -20px;
+}
+
+.disk {
+    background: #34495e;
+    width: 125px;
+    height: 125px;
+    margin: 5px auto 0;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+}
+
+.disk::after {
+    width: 20px;
+    height: 0;
+    border-bottom: 50px solid #495c6e;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -20px;
+    bottom: 0;
+}
+
+.middle {
+    width: 50px;
+    height: 50px;
+    background: #5fccff;
+    border-radius: 50%;
+    position: relative;
+    z-index: 3;
+    margin: -25px auto 0;
+    top: 50%;
+}
+
+.middle::before {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    position: absolute;
+    content: "";
+    background: #35485a;
+    left: 50%;
+    margin-left: -8px;
+    top: 50%;
+    margin-top: -8px;
+}
+
+.middle::after {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    content: "";
+    background: #35485a;
+    left: 50%;
+    margin-left: -4px;
+    top: 50%;
+    margin-top: -4px;
+    background: white;
+}
+
+.arm-container {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    display: block;
+    width: 24px;
+    height: 24px;
+    right: 15px;
+    top: 20px;
+    -ms-transform: rotate(-11deg);
+        transform: rotate(-11deg);
+    -moz-transform: rotate(-11deg);
+    -webkit-transform: rotate(-11deg);
+    -webkit-transition: -webkit-transform 1s;
+    transition: transform 1s;
+}
+
+.arm-container::before {
+    content: "";
+    color: white;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: #95a5a6;
+    border-radius: 50%;
+    top: 4px;
+    left: 4px;
+    position: absolute;
+}
+
+.arm {
+    width: 6px;
+    height: 55px;
+    background: #fff;
+    position: absolute;
+    top: 22px;
+    left: 10px;
+}
+
+.arm::before {
+    height: 30px;
+    width: 6px;
+    background: #fff;
+    position: absolute;
+    display: block;
+    content: "";
+    left: -7px;
+    top: 52px;
+    -webkit-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+        transform: rotate(30deg);
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+
+.arm::after {
+    position: absolute;
+    content: "\25CF";
+    text-align: center;
+    vertical-align: middle;
+    width: 15px;
+    overflow: hidden;
+    color: #344657;
+    height: 15px;
+    background: #fff;
+    border-radius: 50%;
+    top: 73px;
+    right: 12px;
+    font-size: 11px;
+}
+
+
+.play .arm-container {
+   -webkit-transform: rotate(10deg);
+   -ms-transform: rotate(10deg);
+       transform: rotate(10deg);
+}
+
+.play .disk {
+    -webkit-animation: rotating 2s linear infinite;
+    animation: rotating 2s linear infinite;
+    animation-delay: 1s;
+    -webkit-animation-delay: 1s;
+}
+
+@-webkit-keyframes rotating {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes rotating {
+    from {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+    }
+}
 
 /*spinner*/
 .small2 {

@@ -1,12 +1,9 @@
 'use strict';
-app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal){
+app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal, $modalStack){
 
     $scope.showResults = false;
 
     $scope.onListen = function(){
-
-            
-
 
 	navigator.mediaDevices.getUserMedia({
     audio: true
@@ -15,7 +12,7 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal){
     var recordRTC = RecordRTC(stream, {
     });
 
-    // auto stop recording after 5 seconds
+    // auto stop recording after 10 seconds
     recordRTC.setRecordingDuration(10 * 1000).onRecordingStopped(function() {
        console.log('recording stopped');
         $scope.recordedBlob = recordRTC.getBlob();
@@ -42,8 +39,9 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal){
                 $scope.album_image = data.first_image;
                 $scope.showResults = data.show_discogs_results;
                 $scope.releaseResults = data.release_results;
-                 console.log(data.fingerprint_obj);
+                console.log(data.fingerprint_obj);
                 console.log(data.discogs_obj);
+             $modalStack.dismissAll();
             })
             .error(function(data) {
                 console.log('Error: ' + data);
@@ -60,7 +58,7 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal){
 
          //testing Oauth implementation
          //TODO: move to modal
-         $scope.discogsLogin = function()
+  /*       $scope.discogsLogin = function()
         {
             $http.get('/api/authorize')
             .success(function(data) { 
@@ -70,7 +68,7 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal){
             .error(function(data) {
                 console.log('Error: ' + data);
             });
-        };
+        };*/
 
         //modal stuff
     $scope.animationsEnabled = true;
@@ -81,7 +79,8 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal){
       animation: $scope.animationsEnabled,
       templateUrl: '/views/loader.html',
       controller: 'LoaderCtrl',
-      backdrop:'static'
+      backdrop:'static',
+     windowClass: 'app-modal-window'
     });
 
     modalInstance.result.then(function () {
