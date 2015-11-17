@@ -1,44 +1,88 @@
-<nav class="navbar navbar-default" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#/">MegaStream</a>
-  </div>
-   
-  <div ng-controller="NavCtrl" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-<!--     <form class="navbar-form navbar-left" role="search" ng-submit="submitPost()" ng-show="signedIn()">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="" ng-model="post.teamA">
-      </div> vs.
-      <div class="form-group">
-      <input type="text" class="form-control" placeholder="" ng-model="post.teamB">
+<!-- Megastream Brand -->
+  <div class="container" >
+    <div class="navbar-header navbar-inner">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> 
+      </button>
+      <a class="navbar-brand" href="/#/"><h3>MEGASTREAM<h3></a>
+    </div>
+
+<!-- Navigation Bar on Main Landing Page -->
+    <ul class="nav navbar-nav navbar-deafult navbar-right">
+        <li ng-hide="signedIn()"><a href="#myModal" class="navbar-inner" data-toggle="modal" data-target="#login-modal"><h3>Log In<h3></a></li>
+        <li ng-hide="signedIn()"><a href="#myModal" class="navbar-inner" data-toggle="modal" data-target="#register-modal"><h3>Sign Up<h3></a></li>
+        <!-- <li class="dropdown">
+          <a class="dropdown-toggle navbar-inner" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu ">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li> -->
+      </ul> 
+    </div> 
+  </div> 
+ </nav> 
+
+<!-- Login Modal -->
+<div class="auth-forms">
+  <div class="modal fade" data-dismiss="modal"  id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+        <div class="loginmodal-container">
+          <h1>Login to Your Account</h1><br>
+            <form ng-submit="login()">
+            <p ng-show="error" class="text-danger">{{ error }}</p>
+            <input type="email" ng-model="user.email" placeholder="Email" class="form-control">
+            <input type="password" ng-model="user.password" placeholder="Password" class="form-control">
+            <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+            </form>
+          <div class="login-help">
+          <a href="#">Forgot Password</a>
+          </div>
+        </div>
+        </div>
       </div>
-      <button type="submit" class="btn btn-default">Debate it!</button>
-    </form> -->
-    <ul class="nav navbar-nav navbar-right" >
+      </div>
+
+<!-- Register Modal -->
+<div class="auth-forms">
+  <div class="modal fade" data-dismiss="modal"  id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+        <div class="loginmodal-container">
+          <h1>Sign Up</h1><br>
+          <form ng-submit="register()">
+            <p ng-show="error" class="text-danger">{{ error }}</p>
+          <input type="text" ng-model="user.name" placeholder="Name" class="form-control">
+          <input type="email" ng-model="user.email" placeholder="Email" class="form-control">
+          <input type="password" ng-model="user.password" placeholder="Password" class="form-control">
+          <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+          </form>
+        </div>
+        </div>
+      </div>
+      </div>
+   
+
+
+<!--     <ul class="nav navbar-inner navbar-right" >
   <li ng-show="signedIn()">
     <p class="navbar-text">{{ user.profile.username }}</p>
   </li>
   <li ng-show="signedIn()">
     <a ng-href="#/users/{{ user.profile.uid }}">
      {{ currentUser.username }}
-  <!--     <img ng-src="http://www.gravatar.com/avatar/{{ user.profile.md5_hash }}" class="nav-pic" />    --> 
+      <img ng-src="http://www.gravatar.com/avatar/{{ user.profile.md5_hash }}" class="nav-pic" />    
     </a>
   </li>
-  <li ng-show="signedIn()">
+  <li ng-hide="signedIn()">
     <a href="#/" ng-click="logout()">Logout</a>
   </li>
   <li ng-hide="signedIn()">
-    <a href="#/login" data-toggle="modal" data-target="#login-modal" >Login</a>
+    <a href="#/login" data-toggle="modal" data-target="#login-modal">Login</a>
   </li>
   <li ng-hide="signedIn()">
     <a href="#/register">Register</a>
-  </li>
-</ul>
-  </div><!-- /.navbar-collapse -->
-</nav>
+ </li>
+    </ul>  --> 
+ 

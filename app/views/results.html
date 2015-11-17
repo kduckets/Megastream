@@ -1,0 +1,31 @@
+<div style="padding-top:10px">
+<ul class="list-unstyled">
+<li><b>Artist:</b> {{artist}}</li>
+<li><b>Track:</b> {{track}}</li>
+<li><b>Album:</b> {{album}}</li>
+<img src="{{album_image}}" alt=""/>
+</ul>
+</div>
+
+<table st-table="releaseResults" ng-show="showResults" class="table table-striped">
+	<thead>
+	<tr>
+		<th>title</th>
+		<th>year</th>
+		<th>country</th>
+		<th>catno</th>
+		<th>formats</th>
+		<th>url</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="release in releaseResults">
+		<td>{{release.title}}</td>
+		<td>{{release.year}}</td>
+		<td>{{release.country}}</td>
+		<td>{{release.catno}}</td>
+		<td>{{release.format | json : spacing}}</td>
+		<td>{{release.resource_url}}</td>
+	</tr>
+	</tbody>
+</table>

@@ -1,15 +1,21 @@
-<div align="center">
- <div ng-hide="signedIn()">
-      <p><a href="#/login">Sign in</a> or <a ng-href="#/register">register</a> to save your listening stats</p>
+<!-- <div align="center"> 
+  <div class="wrapper"> -->
+    <div class="button-wrapper">
+	<div class="button" ng-click="onListen()" style="padding-top:10px" data-toggle="tooltip" data-placement="bottom" title="Click here to start Megastream">
+    <span class="ico--mic"></span>
+    </div>
+   </div>
+<!--   </div>
+</div> -->
+
+<!--  <div ng-hide="signedIn()">
+      <p><a data-toggle="modal" data-target="#login-modal">Sign in</a> or <a ng-href="#/register">register</a> to save your listening stats</p>
       <a ng-click="discogsLogin()"> Connect</a> to Discogs to manage your collection.
     </div>
-    <div style="padding-top:10px">
+    <div style="padding-top:10px"> -->
 
-    <button ng-click="onListen()">Listen</button>
 
-    </div>
-
-<div style="padding-top:10px">
+<!-- <div style="padding-top:10px">
 <ul class="list-unstyled">
 <li><b>Artist:</b> {{artist}}</li>
 <li><b>Track:</b> {{track}}</li>
@@ -39,6 +45,6 @@
 		<td>{{release.resource_url}}</td>
 	</tr>
 	</tbody>
-</table>
+</table> -->
 
-</div>
+
