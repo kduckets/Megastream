@@ -3,12 +3,26 @@ html, body {
   height: 100%;
 
 }
-h3 { font-family: 'Montserrat', sans-serif; font-weight: 100; }
+h3 { 
 
-.inverted {
-  filter: invert(100%);
+  font-family: 'Montserrat', sans-serif; font-weight: 100;
+
+ }
+
+h3:hover{
+
+background-color: transparent;
+  color: white;
 }
 
+
+
+
+
+/*.inverted {
+  filter: invert(100%);
+}
+*/
 /*loading modal*/
 .app-modal-window .modal-content {
     background-color: transparent;
@@ -341,24 +355,31 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', end
 }
 */
 
-.navbar-default{
+/*.navbar-default{
   background: transparent !important;
-}
+}*/
 
 .navbar-inner {
   background: none !important; 
-  border: none !important;
+/*  border: none !important;*/
   box-shadow: none !important;
   outline-color: none!important;
   -webkit-box-shadow: none !important;
 }
-/*.navbar-toggle {
+.navbar-toggle {
   border: 0 !important; 
   outline: 0 !important; 
 }
-*/
+
+
+
+
 a {
    outline: 0 !important;
+}
+
+a:hover{
+
 }
 
 /*mic*/
@@ -414,9 +435,13 @@ html, body {
 
 span.ico--mic:hover{
   background-color: rgb(71, 192, 235);
-  transition: 2s;
-  box-shadow: inset 0 0 0 5px #3071A9;
+  transition: 8s;
+  box-shadow: inset 0 0 0 55px #3071A9;
+  display: block
+  top: 0;
 }
+
+
 
 
 /*Button */ 
@@ -471,10 +496,13 @@ body {
 
 
 .button-wrapper {
-  height: 100vh;
-  width: 100vw;
+  height: 50vh;
+  width: 50vw;
   overflow: hidden;
 }
+
+
+
 /*.button-svg {
   width: 80px;
   height: 80px;
