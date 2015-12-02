@@ -122,6 +122,7 @@ setTimeout(function() {
   identify(new Buffer(bitmap), defaultOptions, function (err, httpResponse, body) {
   if (err) console.log(err);
   var fingerprint_obj = JSON.parse(body);
+  console.log(fingerprint_obj);
 
  if (fingerprint_obj.status.msg == 'No result'){
      resp.json( 

@@ -62,5 +62,5 @@ var app = angular
         redirectTo: '/'
       });
   });
-app.constant('FIREBASE_URL', 'https://glowing-inferno-7389.firebaseIO.com');
+app.constant('FIREBASE_URL', 'https://megastream.firebaseIO.com');
 

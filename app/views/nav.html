@@ -8,8 +8,12 @@
 
 <!-- Navigation Bar on Main Landing Page -->
     <ul class="nav navbar-nav navbar-deafult navbar-right">
-        <li ng-hide="signedIn()"><a href="#myModal" class="navbar-inner" data-toggle="modal" data-target="#login-modal"><h3>Log In</h3></a></li>
-        <li ng-hide="signedIn()"><a href="#myModal" class="navbar-inner" data-toggle="modal" data-target="#register-modal"><h3>Sign Up</h3></a></li>
+        <li ng-hide="signedIn()">
+    <a href="#/login">Login</a>
+          </li>
+       <li ng-hide="signedIn()">
+    <a href="#/register">Register</a>
+    </li>
         <!-- <li class="dropdown">
           <a class="dropdown-toggle navbar-inner" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu ">
@@ -24,44 +28,6 @@
     </div> 
   </div> 
  </nav> 
-
-<!-- Login Modal -->
-<div class="auth-forms">
-  <div class="modal fade" data-dismiss="modal"  id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
-        <div class="loginmodal-container">
-          <h1>Login to Your Account</h1><br>
-            <form ng-submit="login()">
-            <p ng-show="error" class="text-danger">{{ error }}</p>
-            <input type="email" ng-model="user.email" placeholder="Email" class="form-control">
-            <input type="password" ng-model="user.password" placeholder="Password" class="form-control">
-            <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-            </form>
-          <div class="login-help">
-          <a href="#">Forgot Password</a>
-          </div>
-        </div>
-        </div>
-      </div>
-      </div>
-
-<!-- Register Modal -->
-<div class="auth-forms">
-  <div class="modal fade" data-dismiss="modal"  id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog">
-        <div class="loginmodal-container">
-          <h1>Sign Up</h1><br>
-          <form ng-submit="register()">
-            <p ng-show="error" class="text-danger">{{ error }}</p>
-          <input type="text" ng-model="user.name" placeholder="Name" class="form-control">
-          <input type="email" ng-model="user.email" placeholder="Email" class="form-control">
-          <input type="password" ng-model="user.password" placeholder="Password" class="form-control">
-          <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-          </form>
-        </div>
-        </div>
-      </div>
-      </div>
    
 
 
