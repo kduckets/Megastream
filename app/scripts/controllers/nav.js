@@ -5,6 +5,7 @@ app.controller('NavCtrl', function ($scope, $location, Post, Auth, $http, $cooki
   $scope.signedIn = Auth.signedIn;
   $scope.logout = Auth.logout;
 
+//TODO: move this to angular route
  var qs = $location.search();
     if(qs.oauth_verifier){
 
@@ -16,7 +17,7 @@ app.controller('NavCtrl', function ($scope, $location, Post, Auth, $http, $cooki
 
     $http.post('/api/callback', body)
             .success(function(data) {
-              
+
 
     }, function (error) {
       $scope.error = error.toString();
