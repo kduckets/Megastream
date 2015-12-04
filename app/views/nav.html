@@ -3,52 +3,26 @@
     <div class="navbar-header navbar-inner">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> 
       </button>
-      <a class="navbar-brand" href="/#/"><h3>MEGASTREAM<h3></a>
+      <a class="navbar-brand" href="/"><h3>MEGASTREAM<h3></a>
     </div>
 
-<!-- Navigation Bar on Main Landing Page -->
-    <ul class="nav navbar-nav navbar-deafult navbar-right">
-        <li ng-hide="signedIn()">
-    <a href="#/login">Login</a>
-          </li>
-       <li ng-hide="signedIn()">
-    <a href="#/register">Register</a>
-    </li>
-        <!-- <li class="dropdown">
-          <a class="dropdown-toggle navbar-inner" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu ">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li> -->
-      </ul> 
-    </div> 
-  </div> 
- </nav> 
-   
-
-
-<!--     <ul class="nav navbar-inner navbar-right" >
+<div ng-controller="NavCtrl" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-right" >
   <li ng-show="signedIn()">
     <p class="navbar-text">{{ user.profile.username }}</p>
   </li>
   <li ng-show="signedIn()">
-    <a ng-href="#/users/{{ user.profile.uid }}">
-     {{ currentUser.username }}
-      <img ng-src="http://www.gravatar.com/avatar/{{ user.profile.md5_hash }}" class="nav-pic" />    
-    </a>
+    <a href="/" ng-click="logout()">Logout</a>
   </li>
   <li ng-hide="signedIn()">
-    <a href="#/" ng-click="logout()">Logout</a>
+    <a href="/login">Login</a>
   </li>
   <li ng-hide="signedIn()">
-    <a href="#/login" data-toggle="modal" data-target="#login-modal">Login</a>
+    <a href="/register">Register</a>
   </li>
-  <li ng-hide="signedIn()">
-    <a href="#/register">Register</a>
- </li>
-    </ul>  --> 
+</ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+
+    
  

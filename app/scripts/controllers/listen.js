@@ -1,6 +1,9 @@
 'use strict';
-app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal, $modalStack){
+app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal, $modalStack, $location, $cookies){
 
+    var uid = $cookies.get('uid');
+    var userId = {'user': uid};
+  
     $scope.showResults = false;
 
     $scope.onListen = function(){

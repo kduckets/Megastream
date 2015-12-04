@@ -13,6 +13,8 @@
     var crypto = require('crypto'); //ACR api calls
     var request = require('request');
     var discogsdata = require('node-persist'); //used to persist json data to the filesystem
+    var Firebase = require("firebase");
+    var firebaseRef = new Firebase("https://megastream.firebaseio.com/");
 
     
 
@@ -219,50 +221,104 @@ setTimeout(function() {
 });
 
     //get a request token from Discogs
-    //TODO: persist requestData to user account instead of filesystem (for testing only)
-   router.get('/authorize', function(req, res){
+   router.post('/authorize', function(req, res){
  //interact with Discogs
+    
+    var uid = req.body.user;
   
     var oAuth = new Discogs().oauth();
     oAuth.getRequestToken(
-        'NkGkQmxCMALmQCBYYdnZ', 
+        'NkGkQmxCMALmQCBYYdnZ',
         'npMAgZwCuvfselUUpysRCqyXdQUrqcZh', 
-        'http://localhost:8080/#/', 
+        'http://localhost:8080/', 
         function(err, requestData){
             // Persist "requestData" here so that the callback handler can 
             // access it later after returning from the authorize url
-       
-            discogsdata.initSync();
-            discogsdata.setItem('requestData',requestData);
+            if(requestData){
+            var usersRef = firebaseRef.child("discogsUsers");
+                  usersRef.update({
+                [uid]: {
+                 requestData: requestData,
+                }
+              });
             res.json(
                 {
                     url:requestData.authorizeUrl
-                }
-                
+                }              
                  );
+
         }
+      }
     );
 });
 
    //get an access token from Discogs
-   //TODO: persist accessData to user account instead of filesystem (for testing only)
-   router.get('/callback', function(req, res){
-  
- 
-    var oAuth = new Discogs(discogsdata.getItem('requestData')).oauth();
+   //TODO: find discog user name and test full login workflow
+   router.post('/callback', function(req, res){
+
+     var uid = req.body.user;
+     console.log('oauth_verifier', req.body.verifier);
+
+      firebaseRef.child("discogsUsers").child(uid).child("requestData").on("value", function(snapshot) {
+  console.log(snapshot.val()); 
+      var oAuth = new Discogs(snapshot.val()).oauth();
     oAuth.getAccessToken(
-        req.query.oauth_verifier, // Verification code sent back by Discogs
+
+        req.body.verifier, // Verification code sent back by Discogs
         function(err, accessData){
             // Persist "accessData" here for following OAuth calls 
-            discogsdata.initSync();
-            discogsdata.setItem('accessData',accessData);
-            res.send('Received access token!');
+                var usersRef = firebaseRef.child("discogsUsers").child(uid);
+                  usersRef.update({        
+                 accessData: accessData,           
+              });
+                  
+            //res.send('Received access token!');
+                firebaseRef.child("discogsUsers").child(uid).child("accessData").on("value", function(snapshot) {
+      if(snapshot.val()){
+    var dis = new Discogs(snapshot.val());
+    dis.identity(function(err, data){
+        res.send(data);
+         var usersRef = firebaseRef.child("discogsUsers").child(uid);
+                  usersRef.update({
+            
+                 identity: data,          
+              });
+      });
+  }
+    });
+
         }
     );
 });
 
+
+
+});
+
+   router.post('/identity', function(req, res){
+     var uid = req.body.user;
+     firebaseRef.child("discogsUsers").child(uid).child("accessData").on("value", function(snapshot) {
+      if(snapshot.val()){
+    var dis = new Discogs(snapshot.val());
+    dis.identity(function(err, data){
+        res.send(data);
+         var usersRef = firebaseRef.child("discogsUsers").child(uid);
+                  usersRef.update({
+            
+                 identity: data,          
+              });
+      });
+  }
+    });
+
+});
+
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
+app.get('/*', function(req,res){
+res.sendfile("index.html", { root: __dirname + "/app" });
+});
+
 app.use('/api', router);
   
     app.listen(8080);
