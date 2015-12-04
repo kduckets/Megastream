@@ -10,7 +10,7 @@ npm install
 
 npm install -g nodemon
 
-##install bower dependencies
+##install bower dependencies (bower components are in the project so skip this step for now)
 
 bower install
 
