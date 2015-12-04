@@ -1,0 +1,49 @@
+{
+  "name": "recordrtc",
+  "preferGlobal": false,
+  "version": "5.1.3",
+  "author": {
+    "name": "Muaz Khan",
+    "email": "muazkh@gmail.com",
+    "url": "http://www.muazkhan.com/"
+  },
+  "description": "RecordRTC is a server-less (entire client-side) JavaScript library can be used to record WebRTC audio/video media streams. It supports cross-browser audio/video recording.",
+  "scripts": {
+    "start": "node RecordRTC.js"
+  },
+  "main": "./RecordRTC.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/muaz-khan/RecordRTC.git"
+  },
+  "keywords": [
+    "webrtc",
+    "recordrtc",
+    "audio-recording",
+    "video-recording",
+    "gif-recording",
+    "audio/video recording"
+  ],
+  "analyze": false,
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/muaz-khan/RecordRTC/issues",
+    "email": "muazkh@gmail.com"
+  },
+  "homepage": "http://RecordRTC.org/",
+  "_id": "recordrtc@",
+  "_from": "recordrtc@",
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-cli": "latest",
+    "load-grunt-tasks": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-csslint": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-htmlhint": "latest",
+    "grunt-jsbeautifier": "latest",
+    "grunt-bump": "latest"
+  }
+}
