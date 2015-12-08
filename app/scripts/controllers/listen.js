@@ -3,16 +3,23 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal, 
 
     var uid = $cookies.get('uid');
     var userId = {'user': uid};
+      $scope.user = Auth.user;
 
       $scope.signedIn = Auth.signedIn;
   
     $scope.showResults = false;
 
     $scope.addToCollection = function(release){
-        $http.post('/api/addrelease', user, release)
-            .success(function(data)){
+            var body = {'release':release,
+            'user': $scope.user.id
+                 };
 
-            };
+    
+
+        $http.post('/api/addrelease', body)
+            .success(function(data){
+                console.log('add to collection data', data);
+            });
 
     }
 

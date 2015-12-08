@@ -313,6 +313,35 @@ setTimeout(function() {
 
 });
 
+
+
+   router.post('/addrelease', function(req, res){
+    console.log('got to add release')
+
+      var uid = req.body.user;
+      var folder = 1;
+      var release = req.body.release;
+      console.log('release', release);
+
+      firebaseRef.child("discogsUsers").child(uid).child("accessData").on("value", function(access_data) {
+      if(access_data.val()){
+
+          firebaseRef.child("discogsUsers").child(uid).child("identity").child("username").on("value", function(dc_username) {
+      if(dc_username.val()){
+
+        var dis = new Discogs(access_data.val());
+        dis.user().collection().addRelease(dc_username.val(),'1',release,function(err,data){
+          res.send(data);
+          console.log(data);
+        });
+      };
+    });
+
+      }
+    });
+
+   });
+
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.get('/*', function(req,res){
