@@ -25,6 +25,7 @@ var app = angular
     'ui.bootstrap',
     'timer',
     'angular-spinkit',
+    'ngLoadingSpinner'
   ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider

@@ -316,7 +316,6 @@ setTimeout(function() {
 
 
    router.post('/addrelease', function(req, res){
-    console.log('got to add release')
 
       var uid = req.body.user;
       var folder = 1;
@@ -332,7 +331,6 @@ setTimeout(function() {
         var dis = new Discogs(access_data.val());
         dis.user().collection().addRelease(dc_username.val(),'1',release,function(err,data){
           res.send(data);
-          console.log(data);
         });
       };
     });

@@ -1,5 +1,6 @@
 
   <div class="container">
+   <span us-spinner="{radius:30, width:8, length: 16}"></span>
   <div ng-show="releaseResults">
 <ul class="list-unstyled">
 <li><b>Artist:</b> {{artist}}</li>
@@ -33,10 +34,11 @@
 		<td>{{release.country}}</td>
 		<td>{{release.catno}}</td>
 		<td>{{release.format | json : spacing}}</td>
-		<td ng-show="signedIn()"><button ng-click="addToCollection(release.id)">add to my collection</button></td>
+		<td ng-show="signedIn()"><button ng-click="addToCollection(release.title, release.id)">add to my collection</button></td>
 	</tr>
 	</tbody>
 </table>
+<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
 </div>
 
 </div>

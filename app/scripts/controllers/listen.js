@@ -1,6 +1,8 @@
 'use strict';
 app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal, $modalStack, $location, $cookies, Auth){
-
+     $scope.alerts = [
+  
+  ];
     var uid = $cookies.get('uid');
     var userId = {'user': uid};
       $scope.user = Auth.user;
@@ -9,15 +11,14 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal, 
   
     $scope.showResults = false;
 
-    $scope.addToCollection = function(release){
-            var body = {'release':release,
+    $scope.addToCollection = function(title, id){
+            var body = {'release':id,
             'user': $scope.user.id
-                 };
-
-    
+                 }; 
 
         $http.post('/api/addrelease', body)
             .success(function(data){
+                 $scope.alerts.push({type:'success', msg: title + ' added to collection!'});
                 console.log('add to collection data', data);
             });
 
