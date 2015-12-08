@@ -1,10 +1,18 @@
-<!-- <div align="center"> 
-  <div class="wrapper"> -->
-    <div class="button-wrapper">
+
+  <div class="container">
+  <div ng-show="releaseResults">
+<ul class="list-unstyled">
+<li><b>Artist:</b> {{artist}}</li>
+<li><b>Track:</b> {{track}}</li>
+<li><b>Album:</b> {{album}}</li>
+<img src="{{album_image}}" alt=""/>
+</ul>
+</div>
+ 
 	<div class="button" class="fill" ng-click="onListen()" style="padding-top:10px" data-toggle="tooltip" data-placement="bottom" title="Click here to start Megastream">
     <span class="ico--mic" fill></span>
     </div>
-   </div>
+ 
 <!--   </div>
 </div> -->
 
@@ -14,16 +22,9 @@
     </div>
     <div style="padding-top:10px"> -->
 
-<div style="padding-top:10px">
-<ul class="list-unstyled">
-<li><b>Artist:</b> {{artist}}</li>
-<li><b>Track:</b> {{track}}</li>
-<li><b>Album:</b> {{album}}</li>
-<img src="{{album_image}}" alt=""/>
-</ul>
-</div>
 
-<table st-table="releaseResults" ng-show="showResults" class="table table-striped">
+<div style="padding-top:38px">
+<table st-table="releaseResults" ng-show="showResults" class="table table-hover">
 	<thead>
 	<tr>
 		<th>title</th>
@@ -31,7 +32,7 @@
 		<th>country</th>
 		<th>catno</th>
 		<th>formats</th>
-		<th>url</th>
+		<th ng-show="signedIn()">discogs collection</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -41,9 +42,10 @@
 		<td>{{release.country}}</td>
 		<td>{{release.catno}}</td>
 		<td>{{release.format | json : spacing}}</td>
-		<td>{{release.resource_url}}</td>
+		<td ng-show="signedIn()"><button ng-click="addToCollection(release.id)">add to my collection</button></td>
 	</tr>
 	</tbody>
 </table>
+</div>
 
-
+</div>

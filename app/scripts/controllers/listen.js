@@ -1,10 +1,20 @@
 'use strict';
-app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal, $modalStack, $location, $cookies){
+app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal, $modalStack, $location, $cookies, Auth){
 
     var uid = $cookies.get('uid');
     var userId = {'user': uid};
+
+      $scope.signedIn = Auth.signedIn;
   
     $scope.showResults = false;
+
+    $scope.addToCollection = function(release){
+        $http.post('/api/addrelease', user, release)
+            .success(function(data)){
+
+            };
+
+    }
 
     $scope.onListen = function(){
 
@@ -44,6 +54,7 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal, 
                 $scope.releaseResults = data.release_results;
                 console.log(data.fingerprint_obj);
                 console.log(data.discogs_obj);
+                console.log('release results', data.release_results);
              $modalStack.dismissAll();
             })
             .error(function(data) {
@@ -59,21 +70,7 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal, 
 
 		};//end onListen()
 
-         //testing Oauth implementation
-         //TODO: move to modal
-  /*       $scope.discogsLogin = function()
-        {
-            $http.get('/api/authorize')
-            .success(function(data) { 
-
-            window.location.replace(data.url);      
-            })
-            .error(function(data) {
-                console.log('Error: ' + data);
-            });
-        };*/
-
-        //modal stuff
+         
     $scope.animationsEnabled = true;
 
   $scope.spin = function () {

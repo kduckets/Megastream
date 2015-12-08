@@ -24,7 +24,7 @@ var app = angular
     'smart-table',
     'ui.bootstrap',
     'timer',
-    'angular-spinkit'
+    'angular-spinkit',
   ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
