@@ -1,7 +1,7 @@
 'use strict';
 app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal, $modalStack, $location, $cookies, Auth){
      $scope.alerts = [
-  
+    
   ];
     var uid = $cookies.get('uid');
     var userId = {'user': uid};
@@ -18,6 +18,8 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal, 
 
         $http.post('/api/addrelease', body)
             .success(function(data){
+                //todo: handle errors
+                //if successful..
                  $scope.alerts.push({type:'success', msg: title + ' added to collection!'});
                 console.log('add to collection data', data);
             });

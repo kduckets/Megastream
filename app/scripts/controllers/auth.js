@@ -7,7 +7,9 @@ app.controller('AuthCtrl', function ($scope, $location, Auth, user, $http, $wind
 
   $scope.login = function () {
           
-    Auth.login($scope.user).then(function () {   
+    Auth.login($scope.user).then(function () {  
+    var userData = {'user': Auth.user.uid};
+       $cookies.put('uid', userData.user); 
         $location.path('/');
       });
   };
