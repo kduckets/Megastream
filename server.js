@@ -330,7 +330,11 @@ setTimeout(function() {
 
         var dis = new Discogs(access_data.val());
         dis.user().collection().addRelease(dc_username.val(),'1',release,function(err,data){
-          res.send(data);
+          if(data){
+          res.send({status:'success', data:data});
+        }else{
+          res.send(err);
+        }
         });
       };
     });

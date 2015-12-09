@@ -20,7 +20,11 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal, 
             .success(function(data){
                 //todo: handle errors
                 //if successful..
+                if(data.status == 'success'){
                  $scope.alerts.push({type:'success', msg: title + ' added to collection!'});
+                }else{
+                    $scope.alerts.push({type:'warning', msg: 'Something went wrong adding ' + title + ' to your collection'});
+                }
                 console.log('add to collection data', data);
             });
 
