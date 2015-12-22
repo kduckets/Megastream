@@ -9,7 +9,7 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal, 
 
       $scope.signedIn = Auth.signedIn;
   
-    $scope.showResults = false;
+    $scope.showResults = true;
 
     $scope.addToCollection = function(title, id){
             var body = {'release':id,

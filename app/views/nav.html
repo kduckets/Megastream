@@ -1,28 +1,19 @@
-<!-- Megastream Brand -->
-  <div class="container" >
-    <div class="navbar-header navbar-inner">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> 
-      </button>
+<!-- Navigation Bar on Main Landing Page -->
+<div class="container">
+  <div class="navbar">
+    <div class="nav navbar-brand">
       <a class="navbar-brand" href="/"><h3>MEGASTREAM<h3></a>
     </div>
-
-<div ng-controller="NavCtrl" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav navbar-right" >
-  <li ng-show="signedIn()">
-    <p class="navbar-text">{{ user.profile.username }}</p>
-  </li>
-  <li ng-show="signedIn()">
-    <a href="/" ng-click="logout()">Logout</a>
-  </li>
-  <li ng-hide="signedIn()">
-    <a href="/login">Login</a>
-  </li>
-  <li ng-hide="signedIn()">
-    <a href="/register">Register</a>
-  </li>
-</ul>
-  </div><!-- /.navbar-collapse -->
-</nav>
-
-    
+   
+    <div ng-controller="NavCtrl">
+        <ul class="nav navbar-nav navbar-right navbar-brand">
+          <li ng-show="signedIn()"><p class="navbar-text">{{ user.profile.username }}</p></li>
+          <li ng-show="signedIn()"><a href="/" ng-click="logout()">Logout</a></li>
+          <li ng-hide="signedIn()"><a href="/login" class="navbar-inner"><h3>Log In</h3></a></li>
+          <li ng-hide="signedIn()"><a href="/register" class="navbar-inner"><h3>Sign Up</h3></a></li>
+        </ul>
+    </div>
+  </div>
+</div>
+ 
  

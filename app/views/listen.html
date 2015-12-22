@@ -1,21 +1,28 @@
-
-  <div class="container">
-   <span us-spinner="{radius:30, width:8, length: 16}"></span>
-  <div ng-show="releaseResults">
-<ul class="list-unstyled">
-<li><b>Artist:</b> {{artist}}</li>
-<li><b>Track:</b> {{track}}</li>
-<li><b>Album:</b> {{album}}</li>
-<img src="{{album_image}}" alt=""/>
-</ul>
+<!-- Microphone Image  -->
+<div class="container fluid">
+   	<div class="button-wrapper" ng-animate='animate'>
+		<div class="button"  ng-click="onListen()" uib-popover="Click Here to Start Listening!" popover-placement="right" popover-trigger="mouseenter">
+    		<span class="ico--mic"></span>
+    	</div>
+   </div>
 </div>
- 
-	<div class="button" class="fill" ng-click="onListen()" style="padding-top:10px" data-toggle="tooltip" data-placement="bottom" title="Click here to start Megastream">
-    <span class="ico--mic" fill></span>
-    </div>
 
 
-<div style="padding-top:38px">
+
+<div class="imageresultbox" >
+    	<img src="{{album_image}}" alt=""/>
+    <div>
+		 <p>
+		 	<ul>Artist:{{artist}}</ul><br>
+			<ul>Track:{{track}}</ul><br>
+			<ul>Album:{{album}}</ul><br>
+		 </p>    
+	</div>
+</div>
+
+
+
+<div style="padding-top:100px">
 <table st-table="releaseResults" ng-show="showResults" class="table table-hover">
 	<thead>
 	<tr>
@@ -41,4 +48,151 @@
 <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
 </div>
 
+
+
+
+
+<!-- recycled code graveyard -->
+
+
+
+
+
+<!-- MusicBox -->
+<!-- <CENTER> 
+	<TABLE class="imageresultbox"> 
+		<TR> 
+			<TD><img ng-src="{{album_image}}" alt=""/></TD> 
+			<TD>
+				<b>Artist:</b> {{artist}}<br>
+				<b>Track:</b> {{track}}<br>
+				<b>Album:</b> {{album}}<br>
+			</TD> 
+		</TR> 
+	</TABLE> 
+</CENTER> 
+
+<br>
+<br>
+<br>
+<br>
+ -->
+
+
+<!-- 
+<table>
+			<tr>
+				<TD>
+					<b>Artist:</b>{{artist}}<br>
+					<b>Track:</b> {{track}}<br>
+					<b>Album:</b> {{album}}<br>
+				</TD> 
+			</tr>
+		</table> 
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div>
+	<ul>
+		<li><b>Artist:</b> {{artist}}</li>
+		<li><b>Track:</b> {{track}}</li>
+		<li><b>Album:</b> {{album}}</li>
+	</ul>	
+</div> -->
+
+
+<!-- MusicBox -->
+<!-- <CENTER> 
+	<TABLE class="imageresult"> 
+		<TR> 
+			<TD><img ng-src="{{album_image}}" alt=""/></TD> 
+			<TD>
+				<b>Artist:</b> {{artist}}<br>
+				<b>Track:</b> {{track}}<br>
+				<b>Album:</b> {{album}}<br>
+			</TD> 
+		</TR> 
+	</TABLE> 
+</CENTER> 
+
+<br>
+<br>
+<br>
+<br>
+
+<!-- Results Box -->
+<!-- <CENTER> 
+	<table class="resultsbox" class="table table-striped table-hover" st-table="releaseResults" ng-show="showResults" >
+		<thead >
+			<tr> 
+				<th>Title</th>
+				<th>Year</th>
+				<th>Country</th>
+				<!-- <th>Catno</th> -->
+				<!-- <th>Formats</th>
+				<th>Url</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="release in releaseResults">
+				<td>{{release.title}}</td>
+				<td>{{release.year}}</td>
+				<td>{{release.country}}</td>
+			<!-- 	<td>{{release.catno}}</td> -->
+				<!-- <td>{{release.format | json : spacing}}</td>
+				<td>{{release.resource_url}}</td>
+			</tr>
+		</tbody>
+	</table> -->
+<!-- </CENTER>  --> 
+
+
+
+
+
+
+
+<!--   </div>
+</div> -->
+<!-- 
+ <div ng-hide="signedIn()">
+      <p><a data-toggle="modal" data-target="#login-modal">Sign in</a> or <a ng-href="#/register">register</a> to save your listening stats</p>
+      <a ng-click="discogsLogin()"> Connect</a> to Discogs to manage your collection.
+    </div>
+    <div style="padding-top:10px"> -->
+
+
+    	<!-- <div align="center"> 
+  <div class="wrapper"> -->
+<!--     <div class="button-wrapper">
+	<div class="button" class="fill" ng-click="onListen()" style="padding-top:10px" data-toggle="tooltip" data-placement="bottom" title="Click here to start Megastream">
+    <span class="ico--mic" fill></span>
+    </div>
+   </div>
+
+
+
+   <!-- 
+  <div class="container">
+   <span us-spinner="{radius:30, width:8, length: 16}"></span>
+  <div ng-show="releaseResults">
+<ul class="list-unstyled">
+<li><b>Artist:</b> {{artist}}</li>
+<li><b>Track:</b> {{track}}</li>
+<li><b>Album:</b> {{album}}</li>
+<img src="{{album_image}}" alt=""/>
+</ul>
 </div>
+ 
