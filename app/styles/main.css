@@ -432,13 +432,22 @@ html, body {
   z-index: 1;
 }
 
+.popover.right {
+  background: none !important; 
+  border: none !important;
+  box-shadow: none !important;
+  outline-color: none!important;
+  -webkit-box-shadow: none !important;
+  font-family: 'Montserrat', sans-serif; font-weight: 300;
+}
+.popover.right .arrow:after {
+  border-right-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline-color: transparent !important;
+  -webkit-box-shadow: transparent !important;
+  opacity: tranparent !important;
 
-span.ico--mic:hover{
-  background-color: rgb(71, 192, 235);
-  transition: 8s;
-  box-shadow: inset 0 0 0 55px #3071A9;
-  display: block
-  top: 0;
 }
 
 
@@ -459,7 +468,7 @@ body {
   left: 0;
   height: 100vh;
   width: 100vw;
- overflow: hidden;
+  overflow: hidden;
 }
 
 .button {
@@ -500,6 +509,55 @@ body {
   width: 50vw;
   overflow: hidden;
 }
+
+
+.imageresultbox{
+
+    margin: auto;
+    border: 3px solid white;
+    padding: 5px;
+    width: 500px;
+    height: 200px; 
+    border-radius: 25px;
+
+}
+.imageresultbox img {
+
+    width:168px;
+    height:173px; 
+    float: left;
+    vertical-align:middle;
+    padding-top: 10px;
+    margin: 0 0 10px 10px;
+   /* border-radius: px;*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
