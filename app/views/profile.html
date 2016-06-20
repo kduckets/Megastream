@@ -9,7 +9,24 @@
         {{ profile.username }}
       </span>
     </div>
-  </div>
+  </div> <div class="post row">
+
+
+
+    <ul class="nav nav-pills nav-justified" role="tablist">
+        <li ng-class="{'active': view_tab == 'tabA'}">
+            <a class="btn-lg" ng-click="changeTab('tabA')" href="">posts</a>
+        </li>
+        <li ng-class="{'active': view_tab == 'tabB'}">
+            <a class="btn-lg" ng-click="changeTab('tabB')" href="">favorites</a>
+        </li>
+    </ul>
+</div>
+
+
+
+
+
 
   <div class="post row" ng-repeat="(key,post) in posts">
     <div class="col-md-8 col-xs-10">
