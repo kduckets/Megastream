@@ -120,7 +120,7 @@ function identify(data, options, cb) {
 
 //need to wait for the file to be created before we post to ACRCloud
 setTimeout(function() {
-    var bitmap = fs.readFileSync(__dirname + '/flower.mp3');
+    var bitmap = fs.readFileSync(__dirname + '/test.wav');
   identify(new Buffer(bitmap), defaultOptions, function (err, httpResponse, body) {
   if (err) console.log(err);
   var fingerprint_obj = JSON.parse(body);
@@ -144,52 +144,7 @@ setTimeout(function() {
   var track = fingerprint_obj.metadata.music[0].title;
   var album = fingerprint_obj.metadata.music[0].album.name; 
 
-  //once we have the track, we need to go grab info from discogs
-  //http://www.onemusicapi.com/blog/2013/06/12/better-discogs-searching/
-    var apiKey = 'NkGkQmxCMALmQCBYYdnZ';
-    var apiSecret = 'npMAgZwCuvfselUUpysRCqyXdQUrqcZh';
-    var artist_str = artist.replace(/[^\w\s]|_/g, "+").replace(/\s+/g, "+"); 
-    var album_str = album.replace(/[^\w\s]|_/g, "+").replace(/\s+/g, "+");
-    var track_str = track.replace(/[^\w\s]|_/g, "+").replace(/\s+/g, "+");
-    var discogs_query = 'artist='+ artist_str + '&q=' + 'track:' + track_str + '&format=vinyl' + '&key=' + apiKey + '&secret=' + apiSecret;
-    //console.log('artist: ' + artist + ' album: ' + album);
-    console.log('query' + discogs_query);
-    var options = {
-        host :  'api.discogs.com',
-        headers: { 
-            'User-Agent' : 'Megastream/0.1'
-        },
-        path : '/database/search?' + discogs_query,
-        method : 'GET'
-    }
-    //making the https get call 
-    var getReq = https.request(options, function(response) {
-        var dcBody = '';
-        response.on('data', function(d) {
-            dcBody += d;
-        });
-        response.on('end', function() {
-            // Data reception is done, do whatever with it
-            var discogs_obj = JSON.parse(dcBody);
-             //now respond to the client with the fingerprinting and discogs data
-             //console.log('discogs response:'+dcBody);
-             if(discogs_obj.results){
-                resp.json( 
-                {    
-                    discogs_obj:discogs_obj,
-                    fingerprint_obj:fingerprint_obj,
-                    release_results:discogs_obj.results,
-                    first_image:discogs_obj.results[0].thumb,
-                    first_album:discogs_obj.results[0].title,
-                    track:track,
-                    artist:artist,
-                    show_discogs_results:true 
-                  
-                }
-            );
-            };
-             if(!discogs_obj.results){
-                resp.json( 
+               resp.json( 
                 {    
 
                     track:track,
@@ -197,19 +152,7 @@ setTimeout(function() {
                     first_album:album,
                     show_discogs_results:false  
                   
-                }
-            );
-            };
-
-        });
-    });
-
-    //end the request
-    getReq.end();
-    getReq.on('error', function(err){
-        console.log("Error: ", err);
-        return  resp.status(500).send({error: 'server error occurred'})
-    });
+                })
 
 
     }

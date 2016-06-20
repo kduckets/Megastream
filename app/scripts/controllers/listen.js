@@ -60,15 +60,13 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal, 
 
          $http.post('/api/uploadtrack', base64blob)
             .success(function(data) {
+              console.log(data);
                 $scope.artist = data.artist;
                 $scope.track = data.track;
                 $scope.album = data.first_album;
-                $scope.album_image = data.first_image;
-                $scope.showResults = data.show_discogs_results;
-                $scope.releaseResults = data.release_results;
-                console.log(data.fingerprint_obj);
-                console.log(data.discogs_obj);
-                console.log('release results', data.release_results);
+                $scope.showResults = false;
+                $scope.getDiscogsData($scope.artist, $scope.album, $scope.track);
+ 
              $modalStack.dismissAll();
             })
             .error(function(data) {
@@ -85,7 +83,7 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal, 
 		};//end onListen()
 
          
-    $scope.animationsEnabled = true;
+  $scope.animationsEnabled = true;
 
   $scope.spin = function () {
 
@@ -105,6 +103,29 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal, 
   $scope.toggleAnimation = function () {
     $scope.animationsEnabled = !$scope.animationsEnabled;
   };
+
+$scope.getDiscogsData = function(artist, album, track){
+
+    
+    var apiKey = 'NkGkQmxCMALmQCBYYdnZ';
+    var apiSecret = 'npMAgZwCuvfselUUpysRCqyXdQUrqcZh';
+    var artist_str = artist.replace(/[^\w\s]|_/g, "+").replace(/\s+/g, "+"); 
+    var album_str = album.replace(/[^\w\s]|_/g, "+").replace(/\s+/g, "+");
+    var track_str = track.replace(/[^\w\s]|_/g, "+").replace(/\s+/g, "+");
+    var discogs_query = 'artist='+ artist_str + '&track=' + track_str + '&format=vinyl' + '&key=' + apiKey + '&secret=' + apiSecret;
+      $http({
+  method: 'GET',
+  url : 'https://api.discogs.com/database/search?' + discogs_query
+  }).then(function successCallback(response) {
+  if(response.data.results[0]){
+  $scope.showResults = true;
+  $scope.releaseResults = response.data.results;
+  $scope.album_image = response.data.results[0].thumb,
+  console.log($scope.releaseResults);
+    }
+  })
+};
+
 
 });
 

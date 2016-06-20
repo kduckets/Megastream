@@ -1,0 +1,462 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"val",
+				"value"
+			],
+			[
+				"las",
+				"last_post_id"
+			],
+			[
+				"new",
+				"new_posts"
+			],
+			[
+				"pad",
+				"padding-top"
+			],
+			[
+				"padd",
+				"padding-bottom"
+			],
+			[
+				"get",
+				"getConcerts"
+			],
+			[
+				"ci",
+				"city_state"
+			],
+			[
+				"user",
+				"user_zip"
+			],
+			[
+				"zip",
+				"zip_code"
+			],
+			[
+				"al",
+				"align-content"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"artis",
+				"artist_name"
+			],
+			[
+				"chi",
+				"childSnapshot"
+			],
+			[
+				"pos",
+				"postRef"
+			],
+			[
+				"conc",
+				"concert"
+			],
+			[
+				"ar",
+				"artist"
+			],
+			[
+				"con",
+				"concert"
+			],
+			[
+				"us",
+				"user_id"
+			],
+			[
+				"cop",
+				"copyright"
+			],
+			[
+				"la",
+				"latest_release"
+			],
+			[
+				"re",
+				"results"
+			],
+			[
+				"se",
+				"selectedTags"
+			],
+			[
+				"res",
+				"response"
+			],
+			[
+				"labe",
+				"label_filter"
+			],
+			[
+				"inde",
+				"indexOf"
+			],
+			[
+				"fo",
+				"forEach"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"comment",
+				"comments_score"
+			],
+			[
+				"com",
+				"comments_score"
+			],
+			[
+				"pro",
+				"profile"
+			],
+			[
+				"cha",
+				"chatRef"
+			],
+			[
+				"da",
+				"dataSnapshot"
+			],
+			[
+				"not",
+				"notifications"
+			],
+			[
+				"score",
+				"scoreboards"
+			],
+			[
+				"sco",
+				"scoreboards"
+			],
+			[
+				"load",
+				"loadingCircle"
+			],
+			[
+				"last",
+				"lastWeek"
+			],
+			[
+				"you",
+				"youtube"
+			],
+			[
+				"ht",
+				"htmlCode"
+			],
+			[
+				"ma",
+				"max-width"
+			],
+			[
+				"padding",
+				"padding-left"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"filter",
+				"filteredItems"
+			],
+			[
+				"rel",
+				"related_albums"
+			],
+			[
+				"padding-",
+				"padding-bottom"
+			],
+			[
+				"albums",
+				"albumsBySameArtist"
+			],
+			[
+				"posts",
+				"postsNumber"
+			],
+			[
+				"alb",
+				"album_score"
+			],
+			[
+				"cu",
+				"current_group"
+			],
+			[
+				"to",
+				"toLowerCase"
+			],
+			[
+				"s",
+				"scope"
+			],
+			[
+				"a",
+				"artist"
+			],
+			[
+				"post",
+				"post_id"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"F",
+				"FIREBASE_URL"
+			],
+			[
+				"gr",
+				"grandparent"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/kdi/Documents/Dev/Megastream"
+	],
+	"file_history":
+	[
+		"/Users/kdi/Documents/Dev/Flockify/app/views/concerts.html",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/controllers/albumComments.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/services/concert.js",
+		"/Users/kdi/Documents/Dev/Flockify/app/views/posts.html",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/controllers/concerts.js",
+		"/Users/kdi/Documents/Dev/Flockify/app/views/comments.html",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/controllers/nav.js",
+		"/Users/kdi/Documents/Dev/Flockify/app/views/scoreboard.html",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/controllers/albumPost.js",
+		"/Users/kdi/Documents/Dev/Flockify/app/views/nav.html",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/services/users.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/controllers/posts.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/services/notifications.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/index.js",
+		"/Users/kdi/Documents/Dev/Flockify/app/views/index.html",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/services/trophy.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/controllers/scoreHistory.js",
+		"/Users/kdi/Documents/Dev/Flockify/app/views/chat.html",
+		"/Users/kdi/Documents/Dev/Flockify/app/views/albumComments.html",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/services/profile.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/controllers/auth.js",
+		"/Users/kdi/Documents/Dev/Flockify/app/views/login.html",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/services/auth.js",
+		"/Users/kdi/Documents/Dev/Flockify/package.json",
+		"/Users/kdi/Documents/Dev/Flockify/app/styles/main.css",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/filters/concertDate.js",
+		"/Users/kdi/Documents/Dev/Flockify/app/views/zip.html",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/controllers/profile.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/filters/unique.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/services/action.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/directives/table.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/filters/startFrom.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/services/comments.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/controllers/zip.js",
+		"/Users/kdi/Documents/Dev/Flockify/app/views/albumPost.html",
+		"/Users/kdi/Documents/Dev/Flockify/server.js",
+		"/Users/kdi/Documents/Dev/Flockify/app/views/profile.html",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/filters/labelFilter.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/filters/sanitize.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/services/textFilter.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/services/post.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/controllers/chat.js",
+		"/Users/kdi/Documents/Dev/Flockify/app/views/scoreboardHistory.html",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/controllers/scoreboard.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/directives/youtube.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/directives/focus.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/services/dateFilter.js",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/controllers/callback.js",
+		"/Users/kdi/Documents/Dev/Flockify/app/views/callback.html",
+		"/Users/kdi/Documents/Dev/Flockify/src/app/callback.html",
+		"/Users/kdi/Documents/Dev/Flockify/app/views/about.html"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"md-button",
+			"comments",
+			"$index",
+			"like",
+			"iframe",
+			"post.creator_id",
+			"big",
+			"ng-click",
+			"loadingCircleBar",
+			"font",
+			"loadingBar",
+			"filteredItems"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"comment.creator_id",
+			"loadingBar",
+			"loadingCircle"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Megastream.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 280.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
