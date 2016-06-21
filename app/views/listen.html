@@ -1,6 +1,10 @@
 
   <div class="container">
    <span us-spinner="{radius:30, width:8, length: 16}"></span>
+
+<div class="button" class="fill" ng-click="onListen()" data-toggle="tooltip" data-placement="bottom" title="Click here to start Megastream">
+    <span class="ico--mic" fill></span>
+    </div>
   <div>
 <ul class="list-unstyled">
 <li><b>Artist:</b> {{artist}}</li>
@@ -9,12 +13,8 @@
 <img src="{{album_image}}" alt=""/>
 </ul>
 </div>
-<div class="button" class="fill" ng-click="onListen()" data-toggle="tooltip" data-placement="bottom" title="Click here to start Megastream">
-    <span class="ico--mic" fill></span>
-    </div>
 
-
-<div style="position:relative !important;">
+<div style="position:relative !important; margin-top: 60px">
 <table st-table="releaseResults" ng-show="showResults" class="table table-hover">
 	<thead>
 	<tr>

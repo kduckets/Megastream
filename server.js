@@ -120,7 +120,7 @@ function identify(data, options, cb) {
 
 //need to wait for the file to be created before we post to ACRCloud
 setTimeout(function() {
-    var bitmap = fs.readFileSync(__dirname + '/test.wav');
+    var bitmap = fs.readFileSync(__dirname + '/flower.mp3');
   identify(new Buffer(bitmap), defaultOptions, function (err, httpResponse, body) {
   if (err) console.log(err);
   var fingerprint_obj = JSON.parse(body);
