@@ -129,9 +129,9 @@ setTimeout(function() {
  if (fingerprint_obj.status.msg == 'No result'){
      resp.json( 
                 {    
-            track:'No result, please try again',
-            artist:'No result, please try again' ,
-            first_album:'No result, please try again'
+            track:'No result, trying again',
+            artist:'No result, trying again' ,
+            first_album:'No result'
         }
         )
  };

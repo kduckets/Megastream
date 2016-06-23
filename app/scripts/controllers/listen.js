@@ -64,6 +64,10 @@ app.controller('ListenCtrl', function($scope, $window, $http, Audio, $uibModal, 
                 $scope.artist = data.artist;
                 $scope.track = data.track;
                 $scope.album = data.first_album;
+                if(data.first_album == 'No result'){
+                  $scope.onListen();
+                  return;
+                }
                 $scope.showResults = false;
                 $scope.getDiscogsData($scope.artist, $scope.album, $scope.track);
  
